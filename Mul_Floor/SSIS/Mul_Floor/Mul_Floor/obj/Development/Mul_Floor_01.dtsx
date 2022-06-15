@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/9/2022 11:16:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-5AFDBQK"
+  DTS:CreatorName="DESKTOP-5AFDBQK\Administrator"
+  DTS:DTSID="{E8E65558-5367-41CE-8C2A-6320BA315CCF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="2052"
+  DTS:ObjectName="Mul_Floor_01"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{1B2D2058-E329-4D2C-BF16-101B144A0A27}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Customer]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{28D4245F-4527-43A1-ABBB-A124C552306D}"
+      DTS:ObjectName="Customer">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::varFilePathTest]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2052"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="936"
+          DTS:ConnectionString="D:\桌面\peixun\Mul_Floor\Data_Source\A\Date\date.CSV">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{99FEFAD4-4781-4ABF-8E5A-046FDA9C3123}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonID"
+              DTS:DTSID="{2F2B5106-644A-48E2-9055-DFB57B57BBC1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreID"
+              DTS:DTSID="{A6641EB9-7E7A-4755-8D7B-0155375CA510}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TerritoryID"
+              DTS:DTSID="{1D4E5C78-6BC0-40DA-8E83-926DA02823DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountNumber"
+              DTS:DTSID="{7E0782D5-0F6D-44E3-8CD9-9D94ABA9055C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rowguid"
+              DTS:DTSID="{E6A580C1-DCDA-412C-8E79-5D4C2CC5A337}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ModifiedDate"
+              DTS:DTSID="{80CA6A28-369F-4C34-B642-C8376A413866}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Date]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{17B755B5-1CF9-499A-9423-B0888D2F7330}"
+      DTS:ObjectName="Date">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::varFilePathTest]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2052"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="936"
+          DTS:ConnectionString="D:\桌面\peixun\Mul_Floor\Data_Source\A\Date\date.CSV">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{EB7D2BE1-9F2C-4A71-8710-AB20CBAA6495}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonID"
+              DTS:DTSID="{6BC7CE18-DCA0-4D43-B714-EA2793F728DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreID"
+              DTS:DTSID="{1D1ABBCF-549C-4B07-827A-24736EAA907F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TerritoryID"
+              DTS:DTSID="{B23C7953-4C0A-4F35-ABF3-442C65D06786}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rowguid"
+              DTS:DTSID="{4CB3D288-DAB7-4218-A42F-08EDE79F8353}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ModifiedDate"
+              DTS:DTSID="{26DEA94C-BF81-4C84-9E45-CB83B79CE79C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-5AFDBQK\MSSQL_ADMIN.Task_03.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D9834657-EAE6-4EBA-A8AA-E00B69897514}"
+      DTS:ObjectName="DESKTOP-5AFDBQK\MSSQL_ADMIN.Task_03.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-5AFDBQK\MSSQL_ADMIN;User ID=sa;Initial Catalog=Task_03;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADpisWYmqXOlE9oRKxTV9WyhU5yliNwUZKiJzGPZmm+JAAAAAAOgAAAAAIAACAAAAChmhWgsBfYXCxtLFzvGMo3gjHmmt9qLBEZ+aECNFUPICAAAAC/+P3xHOyCKdVWYoEBTjhf0Y+KFhYr+0BPdlz4fIzE4EAAAACGWVsI++EUTEq/VdYlrLBJz7NjQ1SAx9/t9wDMhL0tmiwHQumIt1xLt757wSi6p7hZhy+rjICS1FL7Ia8yOUb5</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Number]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{208AF460-5873-43B9-8F6E-23DBE6B54CF0}"
+      DTS:ObjectName="Number">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::varFilePathTest]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2052"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="936"
+          DTS:ConnectionString="D:\桌面\peixun\Mul_Floor\Data_Source\A\Date\date.CSV">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{12AC3FD0-9572-478E-84C2-9FB35CD81FB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonID"
+              DTS:DTSID="{7DB51E6B-D08E-4A93-9C39-F4A2332AE380}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreID"
+              DTS:DTSID="{6ED2FBC3-53D4-41BF-A2E6-992B1773943E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TerritoryID"
+              DTS:DTSID="{C9B21693-73AF-4E6B-8BFF-77DB9B7D1402}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountNumber"
+              DTS:DTSID="{C3BF9536-E0FE-4FF2-A43E-A4FDD8935ABE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rowguid"
+              DTS:DTSID="{C8E5B39D-6BFF-4846-B97D-E7732CB8CDB8}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{BF4E0CF9-FF4D-4071-8BAB-38C2C453173E}"
+      DTS:ObjectName="DataSourceDirPath"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\桌面\peixun\Mul_Floor\Data_Source</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\create_truncate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="执行 SQL 任务"
+      DTS:DTSID="{8B8D8F57-5D88-45BB-90E7-E74BCEB3E95A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="create_truncate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D9834657-EAE6-4EBA-A8AA-E00B69897514}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('Customer', 'U') IS NOT NULL&#xA;Drop table Customer&#xA;CREATE TABLE Customer (&#xA;    [CustomerID] varchar(50),&#xA;    [PersonID] varchar(50),&#xA;    [StoreID] varchar(50),&#xA;    [TerritoryID] varchar(50),&#xA;    [AccountNumber] varchar(50),&#xA;    [rowguid] varchar(50),&#xA;    [ModifiedDate] varchar(50)&#xA;)&#xA;GO&#xA;IF OBJECT_ID('Number', 'U') IS NOT NULL&#xA;Drop table Number&#xA;CREATE TABLE Number (&#xA;    [CustomerID] varchar(50),&#xA;    [PersonID] varchar(50),&#xA;    [StoreID] varchar(50),&#xA;    [TerritoryID] varchar(50),&#xA;    [rowguid] varchar(50),&#xA;    [ModifiedDate] varchar(50)&#xA;)&#xA;GO&#xA;IF OBJECT_ID('Date', 'U') IS NOT NULL&#xA;Drop table Date&#xA;CREATE TABLE Date (&#xA;    [CustomerID] varchar(50),&#xA;    [PersonID] varchar(50),&#xA;    [StoreID] varchar(50),&#xA;    [TerritoryID] varchar(50),&#xA;    [AccountNumber] varchar(50),&#xA;    [rowguid] varchar(50),&#xA;)&#xA;GO&#xA;TRuncate table [dbo].[Date];&#xA;TRuncate table [dbo].[Customer];&#xA;TRuncate table [dbo].[Number];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Customer"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="执行包任务"
+      DTS:DTSID="{5E37C144-8728-46FD-B3B6-FB94B6EC1961}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Customer"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Customer.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>DataSourceDirPath</ParameterName>
+            <BindedVariableOrParameterName>$Package::DataSourceDirPath</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Date"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="执行包任务"
+      DTS:DTSID="{08D38E0E-4D51-4B98-9C72-41BAE96D17FD}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Date"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Date.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>DataSourceDirPath</ParameterName>
+            <BindedVariableOrParameterName>$Package::DataSourceDirPath</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Number"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="执行包任务"
+      DTS:DTSID="{2FE078C4-DE4D-4A79-85DE-931AC5D02C4B}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Number"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Number.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>DataSourceDirPath</ParameterName>
+            <BindedVariableOrParameterName>$Package::DataSourceDirPath</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[约束]"
+      DTS:CreationName=""
+      DTS:DTSID="{D3088C01-9482-4B9D-86A1-0162830106AA}"
+      DTS:From="Package\create_truncate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="约束"
+      DTS:To="Package\Customer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[约束 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD3FFC31-DD70-49EA-B483-508D1A1C540E}"
+      DTS:From="Package\Customer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="约束 1"
+      DTS:To="Package\Number" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[约束 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1D9B48C-89EC-4FB8-99F3-EDEA48CA4BC8}"
+      DTS:From="Package\Number"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="约束 2"
+      DTS:To="Package\Date" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 部分包含包的布局信息。该部分包括(x,y)坐标、宽度和高度之类的信息。-->
+<!--如果您手动编辑此部分并且出错，则可以删除此部分。 -->
+<!--该包仍将能够正常加载，但以前的布局信息将丢失，并且设计器将自动在设计图面上重新排列这些元素。-->
+<Objects
+  Version="8">
+  <!--下面的每个节点都将包含不会影响运行时行为的属性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\create_truncate"
+          TopLeft="320.833329090641,7.53174715704073" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Customer"
+          TopLeft="309.999987681707,97.4999950187549" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Number"
+          TopLeft="306.666654480829,172.714276890366" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\Date"
+          TopLeft="309.999987681707,246.071415999715" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[约束]"
+          TopLeft="398.833329090641,49.5317471570407">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.333341408934,47.9682478617142"
+              Start="0,0"
+              End="-25.333341408934,40.4682478617142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9841239308571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.9841239308571"
+                    Point2="0,23.9841239308571"
+                    Point3="-4,23.9841239308571" />
+                  <mssgle:LineSegment
+                    End="-21.333341408934,23.9841239308571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.333341408934,23.9841239308571"
+                    Point2="-25.333341408934,23.9841239308571"
+                    Point3="-25.333341408934,27.9841239308571" />
+                  <mssgle:LineSegment
+                    End="-25.333341408934,40.4682478617142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[约束 1]"
+          TopLeft="373.499987681707,139.499995018755">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.6666667991214,33.214281871611"
+              Start="0,0"
+              End="8.6666667991214,25.714281871611">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.6071409358055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.6071409358055"
+                    Point2="0,16.6071409358055"
+                    Point3="4,16.6071409358055" />
+                  <mssgle:LineSegment
+                    End="4.6666667991214,16.6071409358055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.6666667991214,16.6071409358055"
+                    Point2="8.6666667991214,16.6071409358055"
+                    Point3="8.6666667991214,20.6071409358055" />
+                  <mssgle:LineSegment
+                    End="8.6666667991214,25.714281871611" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[约束 2]"
+          TopLeft="382.166654480829,214.714276890366">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.6666667991214,31.357139109349"
+              Start="0,0"
+              End="-20.6666667991214,23.857139109349">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.6785695546745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.6785695546745"
+                    Point2="0,15.6785695546745"
+                    Point3="-4,15.6785695546745" />
+                  <mssgle:LineSegment
+                    End="-16.6666667991214,15.6785695546745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.6666667991214,15.6785695546745"
+                    Point2="-20.6666667991214,15.6785695546745"
+                    Point3="-20.6666667991214,19.6785695546745" />
+                  <mssgle:LineSegment
+                    End="-20.6666667991214,23.857139109349" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

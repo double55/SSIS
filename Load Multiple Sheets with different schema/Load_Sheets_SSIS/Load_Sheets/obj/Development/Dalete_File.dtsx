@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/7/2022 2:53:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-5AFDBQK"
+  DTS:CreatorName="DESKTOP-5AFDBQK\Administrator"
+  DTS:DTSID="{17EA7FBA-8F83-4771-89F0-7DAD8FF3571F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="2052"
+  DTS:ObjectName="Dalete_File"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{0E8F516C-3965-4ADF-945C-FC36BECF9D07}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C0FABF07-A6D0-4985-8EE1-931CF35C9DBE}"
+      DTS:ObjectName="FilePath"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\桌面\peixun\Load Multiple Sheets with different schema\Data\1.txt</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{21690465-F820-42E5-952D-6384AFB946FD}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::FilePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\桌面\peixun\Load Multiple Sheets with different schema\Data\1.txt</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach 循环容器"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach 循环容器"
+      DTS:DTSID="{03FD477D-C10A-4038-A614-0866FDCF12CF}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach 循环容器">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{465B44BF-DCB7-4A61-8102-7EF3D77A18E3}"
+        DTS:ObjectName="{465B44BF-DCB7-4A61-8102-7EF3D77A18E3}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\桌面\peixun\Load Multiple Sheets with different schema\Data" />
+            <FEFEProperty
+              FileSpec="*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach 循环容器\文件系统任务"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="文件系统任务"
+          DTS:DTSID="{0F23568E-7DE7-4B8F-8ECC-E2C121B02A09}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="文件系统任务"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="User::FilePath"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{B4AEEC32-AF41-4BFA-B4BA-38A612B9B713}"
+          DTS:ObjectName="{B4AEEC32-AF41-4BFA-B4BA-38A612B9B713}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FilePath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 部分包含包的布局信息。该部分包括(x,y)坐标、宽度和高度之类的信息。-->
+<!--如果您手动编辑此部分并且出错，则可以删除此部分。 -->
+<!--该包仍将能够正常加载，但以前的布局信息将丢失，并且设计器将自动在设计图面上重新排列这些元素。-->
+<Objects
+  Version="8">
+  <!--下面的每个节点都将包含不会影响运行时行为的属性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Foreach 循环容器\文件系统任务"
+          TopLeft="60.9749964330346,50.6555499115109" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="280.8,147.2"
+          Size="280.8,190.4"
+          Id="Package\Foreach 循环容器"
+          TopLeft="178.749997336418,119.166663509828" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

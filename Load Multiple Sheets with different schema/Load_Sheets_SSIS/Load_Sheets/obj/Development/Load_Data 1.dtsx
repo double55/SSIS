@@ -1,0 +1,651 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/2/2022 10:40:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-5AFDBQK"
+  DTS:CreatorName="DESKTOP-5AFDBQK\Administrator"
+  DTS:DTSID="{BC426785-ABCB-4FEC-83F8-253517C5A5A9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="2052"
+  DTS:ObjectName="Load_Data"
+  DTS:PackageType="5"
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{CE42ADC0-D0CB-4E39-B7E5-A9C4DB96611E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[D:\桌面\peixun\Load Multiple Sheets with different schema\File\File_20200601.xlsx]"
+      DTS:CreationName="ADO.NET:OLEDB"
+      DTS:DTSID="{53D1C02F-6F47-4F83-8F6E-2C3B1E3BAE3E}"
+      DTS:ObjectName="D:\桌面\peixun\Load Multiple Sheets with different schema\File\File_20200601.xlsx">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"Data Source="+ @[$Package::FilePath]  +";Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=Excel 12.0;"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=D:\桌面\peixun\Load Multiple Sheets with different schema\Data\File_20200602.xlsx;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=Excel 12.0;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-5AFDBQK\MSSQL_ADMIN.tmp.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7B3E417E-0256-43B1-B1E2-F5FBAF47C72E}"
+      DTS:ObjectName="DESKTOP-5AFDBQK\MSSQL_ADMIN.tmp.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-5AFDBQK\MSSQL_ADMIN;User ID=sa;Initial Catalog=tmp;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Tag with column collation when possible=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADT17ejL1xk5wH0hwq74z5nkEf93GRm/4vh/683MNTmBwAAAAAOgAAAAAIAACAAAACFItVpQCSeBF7olXWSoC0UccNqbL+trfwMnag9SS65MiAAAADU/mbA0znYR36w1aV1rU3XF3uXtSGZAML7opUSYNmHOkAAAACYj7QMT4WNHImipK9xfDOOG3LULPUJY2IHrWNEWsUA7/55joBfybba/N2YPzVJS0nrA8vpTuatiCnKjLa+MUFI</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel 连接管理器]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{650A7941-226A-4D96-B365-2F7E8F8073D9}"
+      DTS:ObjectName="Excel 连接管理器">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Package::FilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\桌面\peixun\Load Multiple Sheets with different schema\Data\File_20200602.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{BA0C0B69-FDB7-46FF-A78F-80B97D313515}"
+      DTS:ObjectName="FilePath"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\桌面\peixun\Load Multiple Sheets with different schema\Data\File_20200602.xlsx</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{173B15FE-89E0-42E1-8C3D-877C5A4B96DF}"
+      DTS:ObjectName="SheetName"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Employee$</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2952F6E9-C46B-49AC-99CC-7182CAF07839}"
+      DTS:ObjectName="SheetName_City">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">City$</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DA735267-5C19-47AF-9BA6-485572C1ADC9}"
+      DTS:ObjectName="SheetName_Employee">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Employee$</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C62AFAAD-0F11-48CD-9605-E1BD0D9D61ED}"
+      DTS:ObjectName="SheetNmae_EmCi">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">EmCi$</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{17FE75D8-A262-4F99-A635-0C01E92CA7D2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FilePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\桌面\peixun\Load Multiple Sheets with different schema\Data\File_20200602.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{57B73B37-6839-40F8-8B05-2D4054A62D9A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::SheetName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName">
+      <DTS:VariableValue
+        DTS:DataType="8">Employee$</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{813D1849-7F5A-4FB3-903D-FD0B5DC88020}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::SheetName_City]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName_City">
+      <DTS:VariableValue
+        DTS:DataType="8">City$</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{19EA9F39-CDE0-4BA1-BC30-A5D6A65E15CC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::SheetName_Employee]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName_Employee">
+      <DTS:VariableValue
+        DTS:DataType="8">Employee$</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{73AE6BF2-D775-470E-B209-B8ADC372332D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::SheetNmae_EmCi]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetNmae_EmCi">
+      <DTS:VariableValue
+        DTS:DataType="8">EmCi$</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Employee Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="数据流任务"
+      DTS:DTSID="{D91D3FCC-6567-4052-9B98-C4372D8E49E0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Employee Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Employee Data\Excel 源"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel 源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;1"
+              description="Excel 源"
+              name="Excel 源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用于打开行集的数据库对象的名称。"
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用于打开行集的数据库对象名的变量。"
+                  name="OpenRowsetVariable">$Package::SheetName</property>
+                <property
+                  dataType="System.String"
+                  description="要执行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="包含要执行的 SQL 命令的变量。"
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用于访问数据库的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+                <property
+                  dataType="System.String"
+                  description="从 SQL 命令中的参数到变量的映射。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Employee Data\Excel 源.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel 连接管理器]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel 连接管理器]"
+                  description="指定用于访问数据库的 OLE DB 运行时连接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出]"
+                  name="Excel 源输出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[id]"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[first_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[first_name]"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[last_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[last_name]"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[gender]"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[phone_number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[phone_number]"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[phone_number]"
+                      name="phone_number"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[id]"
+                      dataType="r8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[first_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[last_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].ExternalColumns[phone_number]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone_number" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出]"
+                  isErrorOut="true"
+                  name="Excel 源错误输出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[id]"
+                      dataType="r8"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[first_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[last_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[phone_number]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[phone_number]"
+                      name="phone_number" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Employee Data\OLE DB 目标"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目标;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目标"
+              name="OLE DB 目标"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用于打开行集的数据库对象的名称。"
+                  name="OpenRowset">[dbo].[tblEmployee]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用于打开行集的数据库对象名的变量。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要执行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定当数据源中没有代码页信息时使用的列代码页。"
+                  name="DefaultCodePage">936</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字符数据时，强制使用 DefaultCodePage 属性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用于访问数据库的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指示是否将为标识列提供的值复制到目标。如果设置为 False，则将在目标中为标识列自动生成值。仅当启用了快速加载时适用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指示对于包含 Null 值的列是否将 Null 值插入目标中。如果为 False，则对于包含 Null 值的列会将其默认值插入目标中。仅当启用了快速加载时适用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定将用于快速加载的选项。仅当启用了快速加载时适用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在插入数据期间何时发出提交命令。如果值为 0，则指定在数据插入结束时发出一个提交命令。仅当启用了快速加载时适用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Employee Data\OLE DB 目标.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-5AFDBQK\MSSQL_ADMIN.tmp.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-5AFDBQK\MSSQL_ADMIN.tmp.sa]"
+                  description="指定用于访问数据库的 OLE DB 运行时连接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目标输入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[id]"
+                      cachedDataType="r8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Id]"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[first_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[first_name]"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[last_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[last_name]"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[email]"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[gender]"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[phone_number]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone_number"
+                      externalMetadataColumnId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[phone_number]"
+                      lineageId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出].Columns[phone_number]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[first_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[last_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[phone_number]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone_number" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Employee Data\OLE DB 目标.Outputs[OLE DB 目标错误输出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目标错误输出"
+                  synchronousInputId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Employee Data\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Employee Data\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Employee Data\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Employee Data.Paths[Excel 源输出]"
+              endId="Package\Load Employee Data\OLE DB 目标.Inputs[OLE DB 目标输入]"
+              name="Excel 源输出"
+              startId="Package\Load Employee Data\Excel 源.Outputs[Excel 源输出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 部分包含包的布局信息。该部分包括(x,y)坐标、宽度和高度之类的信息。-->
+<!--如果您手动编辑此部分并且出错，则可以删除此部分。 -->
+<!--该包仍将能够正常加载，但以前的布局信息将丢失，并且设计器将自动在设计图面上重新排列这些元素。-->
+<Objects
+  Version="8">
+  <!--下面的每个节点都将包含不会影响运行时行为的属性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Load Employee Data"
+          TopLeft="191.000001788139,250.285686580504" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Employee Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Load Employee Data\OLE DB 目标"
+          TopLeft="377,216" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Load Employee Data\Excel 源"
+          TopLeft="389,63" />
+        <EdgeLayout
+          Id="Package\Load Employee Data.Paths[Excel 源输出]"
+          TopLeft="451,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,111"
+              Start="0,0"
+              End="0,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Employee Data\Excel 源">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Employee Data\OLE DB 目标">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="sql01cndev19909.database.chinacloudapi.cn.sqldbrep01cndev19909.cdldev01"
+  DTS:DTSID="{63C99E15-68C6-4FEF-9A99-07C527C5EF69}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=sql01cndev19909.database.chinacloudapi.cn;User ID=cdldev01;Initial Catalog=sqldbrep01cndev19909;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAp5WC7ey9PUyKR/RSj7d5hAAAAAACAAAAAAADZgAAwAAAABAAAABHXsMXKWnj5fqvs2QlBl5lAAAAAASAAACgAAAAEAAAAG3LTVqBv5OHsEwjRXVXVk54AAAAW9D6bIkzA0RSbXpmEbkXS6+kCDszOMPC5MsbiAiDONW5zQ2xcvO5tUJHyCwzghN2z0Ad0S/DrP3t3T/fp2DyInSjNH6F27lE1qGALmjo96O//IsG1oT+73pW/XlKu77GudISs9rAqn73Vx0cIO4lXK609733kXBMFAAAABpo/lXFUjmkEkiidF8WG4pZGKwR</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

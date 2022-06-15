@@ -1,0 +1,1542 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/9/2022 9:17:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="嘉鑫"
+  DTS:CreatorName="嘉鑫\78659"
+  DTS:DTSID="{E8F56624-6E78-41C5-932B-74C29C2608A8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LocaleID="2052"
+  DTS:ObjectName="Department"
+  DTS:PackageType="5"
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{BC8279E7-CA69-473A-9945-3FE82C986535}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel 连接管理器]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{B62973A7-38E0-4F7A-95BB-EE578EC99A6B}"
+      DTS:ObjectName="Excel 连接管理器">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::varFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\培训\进阶培训\多层级文件\File01\Department\Department01.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Success]"
+      DTS:CreationName="FILE"
+      DTS:Description="D:\培训\进阶培训\多层级文件\BackupFile01\Department\Success"
+      DTS:DTSID="{2A0F56B2-70F4-425B-9686-BD012A1E78EE}"
+      DTS:ObjectName="Success">
+      <DTS:PropertyExpression
+        DTS:Name="Description">@[User::varBackupFile]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="D:\培训\进阶培训\多层级文件\BackupFile01\Department\Success" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[嘉鑫\MSSQLSERVER04.AdvancePractice]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{96A9DF8C-DB0A-429E-8982-44AB2ED1C0CA}"
+      DTS:ObjectName="嘉鑫\MSSQLSERVER04.AdvancePractice">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=嘉鑫\MSSQLSERVER04;Initial Catalog=AdvancePractice;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9D943484-0E97-451B-837C-05C9BA7DD5C6}"
+      DTS:ObjectName="parBackupFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\培训\进阶培训</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7F799C66-C589-4E79-BAE1-BEA25185F06D}"
+      DTS:ObjectName="parFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\培训\进阶培训\多层级文件</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{80C6A944-D2B3-4AC3-A56C-65542C354142}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::parBackupFilePath] +&quot;\\&quot;+ &quot;BackupFile&quot; + &quot;\\&quot; +REPLACE( @[User::varFileNameExample], &quot;*&quot;, &quot;&quot;) + &quot;\\&quot; +( @[User::varIsFailed] == 0? &quot;Success&quot;:&quot;Fail&quot; )"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varBackupFileDir">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\培训\进阶培训\BackupFile\Department\Success</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{559C0075-D6B0-4696-8980-874B208FCFAE}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::varBackupFileDir] +&quot;\\&quot;+ @[User::varNewFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varBackupFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\培训\进阶培训\BackupFile\Department\Success\Department01_20220614153640.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{13B387BA-C175-495D-8580-E8AFA0B3D246}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="LEFT(REPLACE(REPLACE(REPLACE((DT_WSTR,29)GETDATE(),&quot;-&quot;,&quot;&quot;),&quot; &quot;,&quot;&quot;),&quot;:&quot;,&quot;&quot;),14)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varDtStr">
+      <DTS:VariableValue
+        DTS:DataType="8">20220614153640</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D9516650-9945-44A6-8F02-8CADAEA4E240}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::parFilePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileDirPath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\培训\进阶培训\多层级文件</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{423F65BD-FBF7-4AD6-A87E-0D8901F95BB8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileExtension">
+      <DTS:VariableValue
+        DTS:DataType="8">.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{62D2464E-BD3F-4417-8D4E-D05A9CD14D3F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Department01</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{92AF6F13-55F5-4E90-98CB-CA848402EC1B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::varFileName] +  @[User::varFileExtension]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileNameAndExtension">
+      <DTS:VariableValue
+        DTS:DataType="8">Department01.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DC6C8494-A4E7-4C83-9C6C-7E538EA76745}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileNameExample">
+      <DTS:VariableValue
+        DTS:DataType="8">Department*</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{22A5E02C-559B-478A-85E1-2109781BB42C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileName_Department">
+      <DTS:VariableValue
+        DTS:DataType="8">Department01</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{337C4A6B-D251-4DB7-9E66-F7A75425C997}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\培训\进阶培训\多层级文件\File01\Department\Department01.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{894072C3-CA38-4FBE-BEC5-ADF62CE0B6EE}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="RIGHT( @[User::varFilePath] , FINDSTRING( REVERSE(  @[User::varFilePath]), &quot;\\&quot;, 1 ) -1)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varGetFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Department01.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D760329-1064-41F3-AB77-DBD9BEB11B13}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="varIsFailed">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C931A5C0-B5A3-4A08-A5F6-8B11CE418E87}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="LEFT(@[User::varGetFileName], FINDSTRING(@[User::varGetFileName], &quot;.&quot;, 1)-1) + &quot;_&quot; +  @[User::varDtStr] +  @[User::varFileExtension]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varNewFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Department01_20220614153640.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EST_Crear Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="执行 SQL 任务"
+      DTS:DTSID="{68DED173-383D-4771-86B0-7E5707B434CF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST_Crear Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{96A9DF8C-DB0A-429E-8982-44AB2ED1C0CA}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DepartmentExcel" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FRC_File_Loop File"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach 循环容器"
+      DTS:DTSID="{D23E6595-A64E-41A0-9B84-2EC2D588326C}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FRC_File_Loop File">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{0C79F5C6-FDFE-4EDD-961F-FA0A6191E3D3}"
+        DTS:ObjectName="{0C79F5C6-FDFE-4EDD-961F-FA0A6191E3D3}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Package::parFilePath]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">@[User::varFileNameExample] + @[User::varFileExtension]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\培训\进阶培训\多层级文件" />
+            <FEFEProperty
+              FileSpec="Department*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="-1" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FRC_File_Loop File\FST_Create BackupPath"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="文件系统任务"
+          DTS:DTSID="{151126D0-3589-46D4-8FB0-42AE98848219}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FST_Create BackupPath"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="CreateDirectory"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::varBackupFileDir"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="序列容器"
+          DTS:DTSID="{2CAF0973-E743-49AC-8EA1-D2F74860DFAE}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SC_Extract Data And Load Into DB">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="数据流任务"
+              DTS:DTSID="{E05B979C-856B-485C-8425-8ECC0C65F582}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT_Extract Data Into DB"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源"
+                      componentClassID="Microsoft.ExcelSource"
+                      contactInfo="Excel 源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;1"
+                      description="Excel 源"
+                      name="Excel 源"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="指定用于打开行集的数据库对象的名称。"
+                          name="OpenRowset">Sheet1$</property>
+                        <property
+                          dataType="System.String"
+                          description="指定包含用于打开行集的数据库对象名的变量。"
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="要执行的 SQL 命令。"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.String"
+                          description="包含要执行的 SQL 命令的变量。"
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定用于访问数据库的模式。"
+                          name="AccessMode"
+                          typeConverter="AccessMode">0</property>
+                        <property
+                          dataType="System.String"
+                          description="从 SQL 命令中的参数到变量的映射。"
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Excel 连接管理器]"
+                          connectionManagerRefId="Package.ConnectionManagers[Excel 连接管理器]"
+                          description="指定用于访问数据库的 OLE DB 运行时连接。"
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出]"
+                          name="Excel 源输出">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[ID]"
+                              dataType="r8"
+                              errorOrTruncationOperation="转换"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].ExternalColumns[ID]"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[ID]"
+                              name="ID"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[Department]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="转换"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].ExternalColumns[Department]"
+                              length="255"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[Department]"
+                              name="Department"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[Manager]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="转换"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].ExternalColumns[Manager]"
+                              length="255"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[Manager]"
+                              name="Manager"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].ExternalColumns[ID]"
+                              dataType="r8"
+                              name="ID" />
+                            <externalMetadataColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].ExternalColumns[Department]"
+                              dataType="wstr"
+                              length="255"
+                              name="Department" />
+                            <externalMetadataColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].ExternalColumns[Manager]"
+                              dataType="wstr"
+                              length="255"
+                              name="Manager" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出]"
+                          isErrorOut="true"
+                          name="Excel 源错误输出">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[ID]"
+                              dataType="r8"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[ID]"
+                              name="ID" />
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[Department]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[Department]"
+                              name="Department" />
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[Manager]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[Manager]"
+                              name="Manager" />
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB 目标;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB 目标"
+                      name="OLE DB 目标"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="指定用于打开行集的数据库对象的名称。"
+                          name="OpenRowset">[dbo].[DepartmentExcel]</property>
+                        <property
+                          dataType="System.String"
+                          description="指定包含用于打开行集的数据库对象名的变量。"
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="要执行的 SQL 命令。"
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定当数据源中没有代码页信息时使用的列代码页。"
+                          name="DefaultCodePage">936</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="描述字符数据时，强制使用 DefaultCodePage 属性值。"
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定用于访问数据库的模式。"
+                          name="AccessMode"
+                          typeConverter="AccessMode">0</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示是否将为标识列提供的值复制到目标。如果设置为 False，则将在目标中为标识列自动生成值。仅当启用了快速加载时适用。"
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示对于包含 Null 值的列是否将 Null 值插入目标中。如果为 False，则对于包含 Null 值的列会将其默认值插入目标中。仅当启用了快速加载时适用。"
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="指定将用于快速加载的选项。仅当启用了快速加载时适用。"
+                          name="FastLoadOptions"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="指定在插入数据期间何时发出提交命令。如果值为 0，则指定在数据插入结束时发出一个提交命令。仅当启用了快速加载时适用。"
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[嘉鑫\MSSQLSERVER04.AdvancePractice]"
+                          connectionManagerRefId="Package.ConnectionManagers[嘉鑫\MSSQLSERVER04.AdvancePractice]"
+                          description="指定用于访问数据库的 OLE DB 运行时连接。"
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入]"
+                          errorOrTruncationOperation="插入"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB 目标输入">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[ID]"
+                              cachedDataType="r8"
+                              cachedName="ID"
+                              externalMetadataColumnId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[ID]"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[ID]" />
+                            <inputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[Department]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Department"
+                              externalMetadataColumnId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Department]"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[Department]" />
+                            <inputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[Manager]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Manager"
+                              externalMetadataColumnId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Manager]"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出].Columns[Manager]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[ID]"
+                              dataType="i4"
+                              name="ID" />
+                            <externalMetadataColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Department]"
+                              dataType="wstr"
+                              length="50"
+                              name="Department" />
+                            <externalMetadataColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Manager]"
+                              dataType="wstr"
+                              length="50"
+                              name="Manager" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Outputs[OLE DB 目标错误输出]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB 目标错误输出"
+                          synchronousInputId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB.Paths[Excel 源输出]"
+                      endId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标.Inputs[OLE DB 目标输入]"
+                      name="Excel 源输出"
+                      startId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源.Outputs[Excel 源输出]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\ET_SetFail"
+              DTS:CreationName="Microsoft.ExpressionTask"
+              DTS:Description="表达式任务"
+              DTS:DTSID="{DD219647-6C1D-4D85-BDB1-4A9D164E4004}"
+              DTS:ExecutableType="Microsoft.ExpressionTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="ET_SetFail"
+              DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExpressionTask
+                  Expression="@[User::varIsFailed] = 1" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\ET_varIsFailed"
+              DTS:CreationName="Microsoft.ExpressionTask"
+              DTS:Description="表达式任务"
+              DTS:DTSID="{2C024538-32CD-4571-92EE-33D9A8A0D638}"
+              DTS:ExecutableType="Microsoft.ExpressionTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="ET_varIsFailed"
+              DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExpressionTask
+                  Expression="@[User::varIsFailed] = 0" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB.PrecedenceConstraints[约束]"
+              DTS:CreationName=""
+              DTS:DTSID="{6A6BA657-EAD2-47A0-97A7-177D6E9FE902}"
+              DTS:From="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\ET_varIsFailed"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="约束"
+              DTS:To="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB.PrecedenceConstraints[约束 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{60747FA3-8951-4D2C-9988-39BE5C7A4E2F}"
+              DTS:From="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="约束 1"
+              DTS:To="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\ET_SetFail"
+              DTS:Value="1" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FRC_File_Loop File\ST_File Backup"
+          DTS:CreationName="Microsoft.ScriptTask"
+          DTS:Description="脚本任务"
+          DTS:DTSID="{3B51AF33-C0F1-45E0-9A1E-34BC42DC5DFF}"
+          DTS:ExecutableType="Microsoft.ScriptTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ST_File Backup"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_6add483172154fed8d3f3128d6a0c860"
+              VSTAMajorVersion="15"
+              VSTAMinorVersion="0"
+              Language="CSharp"
+              ReadOnlyVariables="User::varBackupFilePath,User::varFilePath">
+              <ProjectItem
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_6add483172154fed8d3f3128d6a0c860")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_6add483172154fed8d3f3128d6a0c860")]
+[assembly: AssemblyCopyright("Copyright @  2022")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Resources.resx"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+              <ProjectItem
+                Name="ScriptMain.cs"
+                Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.IO;
+#endregion
+
+namespace ST_6add483172154fed8d3f3128d6a0c860
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            // TODO: Add your code here
+            //User::varBackupFilePath,User::varFilePath
+
+            string srcFilePath = Dts.Variables["User::varFilePath"].Value.ToString();
+            string dstFilePath = Dts.Variables["User::varBackupFilePath"].Value.ToString();
+
+            if (File.Exists(srcFilePath))
+            {
+                if (File.Exists(dstFilePath))
+                {
+                    File.Delete(dstFilePath);
+                }
+                File.Move(srcFilePath, dstFilePath);
+            }
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+              <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_6add483172154fed8d3f3128d6a0c860</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_6add483172154fed8d3f3128d6a0c860</msb:DisplayName>
+    <msb:ProjectId>{8D6FA1D2-ACE1-430A-86DE-5C073432C949}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_6add483172154fed8d3f3128d6a0c860.csproj" />
+    <msb:File Include="ScriptMain.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_6add483172154fed8d3f3128d6a0c860.Properties.Settings.get_Default():ST_6add483172154fed8d3f3128d6a0c860.Properties.Sett" +
+    "ings")]
+
+namespace ST_6add483172154fed8d3f3128d6a0c860.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
+                Name="ST_6add483172154fed8d3f3128d6a0c860.csproj"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05ad2d9b-81ae-4cab-9a79-7e9e5ebab32c}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_6add483172154fed8d3f3128d6a0c860</RootNamespace>
+    <AssemblyName>ST_6add483172154fed8d3f3128d6a0c860</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Resources.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_6add483172154fed8d3f3128d6a0c860.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_6add483172154fed8d3f3128d6a0c860.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_6add483172154fed8d3f3128d6a0c860.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_6add483172154fed8d3f3128d6a0c860.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_6add483172154fed8d3f3128d6a0c860.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <BinaryItem
+                Name="ST_6add483172154fed8d3f3128d6a0c860.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDALDypmIAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAQi4A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAPAtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAASA4AAAAgAAAAEAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAk
+LgAAAAAAAEgAAAACAAUALCEAAAwMAAABAAAAAAAAADgtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAgBqAAAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
+AAAKbxQAAAoKAigQAAAKbxEAAApyJQAAcG8SAAAKbxMAAApvFAAACgsGKBUAAAosFQcoFQAACiwG
+BygWAAAKBgcoFwAACgIoEAAAChZvGAAACioeAigZAAAKKh4CKBoAAAoqrn4BAAAELR5yVQAAcNAD
+AAACKBsAAApvHAAACnMdAAAKgAEAAAR+AQAABCoafgIAAAQqHgKAAgAABCoafgMAAAQqHgIoHgAA
+CioucwgAAAaAAwAABCpCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAADUAwAAI34A
+AEAEAACABQAAI1N0cmluZ3MAAAAAwAkAAMgAAAAjVVMAiAoAABAAAAAjR1VJRAAAAJgKAAB0AQAA
+I0Jsb2IAAAAAAAAAAgAAAVcdogEJAwAAAPoBMwAWAAABAAAAHgAAAAUAAAAGAAAACQAAAAEAAAAe
+AAAAAgAAABAAAAABAAAAAgAAAAMAAAAEAAAAAQAAAAQAAAABAAAAAQAAAAAAkAMBAAAAAAAGADsC
+YAQGAMoCYAQGAIcBTQQPANQEAAAGALQBDgQGAB4CDgQGAP8BDgQGALECDgQGAFsCDgQGAHQCDgQG
+AMsBDgQGAOYB/QIKAI8CPwMKAP8APwMGAMgDwQMGAGoBTQQGAE4FwQMGADAEgAQGACAE+QMOADMB
+egMOAJsBegMOABsB5AMGAE8BYAQKAGgDPwMSABYFqgASAHgAqgAGAKUALgAGAMoAwQMGAIEAwQMG
+AHQFDgQAAAAAJQAAAAAAAQABAAEAEADZAwEAOQABAAEAAAAQAIcE4wRFAAEAAwAAARAAIAXjBFkA
+AwAHAAMBAAA5BQAAPQAEAAoAEQDNA3cAEQDvAHsAEQBoAH8ABgZXAIMAVoApBYYAVoDPAIYAUCAA
+AAAAhgDfAwYAAQDGIAAAAACGGEAEBgABAM4gAAAAAIMYQAQGAAEA1iAAAAAAkwgsBIoAAQACIQAA
+AACTCNcAjwABAAkhAAAAAJMI4wCUAAEAESEAAAAAlghVBZoAAgAYIQAAAACGGEAEBgACACAhAAAA
+AJEYRgSfAAIAAAABAPICCQBABAEAEQBABAYAGQBABAoAKQBABBAAMQBABBAAOQBABBAAQQBABBAA
+SQBABBAAUQBABBAAWQBABBAAYQBABBAAaQBABAYAgQBABAYAqQBABBUAuQBABAYAcQAxBSAAwQAS
+BSUAyQC4AyoA0QDoAjAAiQAXAzQA2QBHBTgA2QBIAT0A2QD4AkIAwQBhBQEAcQBABAYAiQBABAYA
+4QCTAEgA4QBwBU8AkQBABFQAsQBABAYACAAUAG0ACAAYAHIAKQBzANoALgALALIALgATALsALgAb
+ANoALgAjAOMALgArAAwBLgAzAAwBLgA7AAwBLgBDAOMALgBLABIBLgBTAAwBLgBbACkBQwBjAHIA
+SQBzANoAYQB7AHIAYwBrAHIAGwADAAEABAADAAAAMASjAAAA9wCoAAAAWQWtAAIABAADAAIABQAF
+AAEABgAFAAIABwAHAASAAAABAAAAByCYcgAAAAAAAAEAAAAEAAAAAAAAAAAAAABbAF8AAAAAAA8A
+AAAAAAAAAAAAAGQAIAMAAAAABAAAAAAAAAAAAAAAWwDBAwAAAAAPAAAAAAAAAAAAAABkADgAAAAA
+AAAAAAABAAAAkQQAAAUAAgAAAABTVF82YWRkNDgzMTcyMTU0ZmVkOGQzZjMxMjhkNmEwYzg2MAA8
+TW9kdWxlPgBTeXN0ZW0uSU8ATWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRTAHZhbHVlX18A
+bXNjb3JsaWIAZGVmYXVsdEluc3RhbmNlAFZhcmlhYmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5
+cGVGcm9tSGFuZGxlAEZpbGUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZh
+aWx1cmUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlw
+dE9iamVjdE1vZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVT
+dGF0ZQBEZWxldGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29k
+ZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBB
+c3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZy
+YW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlE
+ZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2Vt
+Ymx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0
+VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVD
+b21wYXRpYmlsaXR5QXR0cmlidXRlAGdldF9WYWx1ZQB2YWx1ZQBNb3ZlAFN5c3RlbS5SdW50aW1l
+LlZlcnNpb25pbmcAVG9TdHJpbmcATWljcm9zb2Z0LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jv
+c29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sAU2NyaXB0T2JqZWN0TW9kZWwAU3lz
+dGVtLkNvbXBvbmVudE1vZGVsAFNUXzZhZGQ0ODMxNzIxNTRmZWQ4ZDNmMzEyOGQ2YTBjODYwLmRs
+bABnZXRfSXRlbQBTeXN0ZW0ARW51bQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAFN5c3RlbS5Db25m
+aWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3RlbS5SZWZsZWN0aW9uAEN1bHR1cmVJ
+bmZvAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0b3IALmNjdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBT
+eXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU1RfNmFkZDQ4
+MzE3MjE1NGZlZDhkM2YzMTI4ZDZhMGM4NjAuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2Vz
+AERlYnVnZ2luZ01vZGVzAFNUXzZhZGQ0ODMxNzIxNTRmZWQ4ZDNmMzEyOGQ2YTBjODYwLlByb3Bl
+cnRpZXMAZ2V0X1ZhcmlhYmxlcwBTZXR0aW5ncwBTdWNjZXNzAGdldF9EdHMAU2NyaXB0UmVzdWx0
+cwBFeGlzdHMAT2JqZWN0AGdldF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Bc3NlbWJseQAA
+AAAAI1UAcwBlAHIAOgA6AHYAYQByAEYAaQBsAGUAUABhAHQAaAAAL1UAcwBlAHIAOgA6AHYAYQBy
+AEIAYQBjAGsAdQBwAEYAaQBsAGUAUABhAHQAaAAAcVMAVABfADYAYQBkAGQANAA4ADMAMQA3ADIA
+MQA1ADQAZgBlAGQAOABkADMAZgAzADEAMgA4AGQANgBhADAAYwA4ADYAMAAuAFAAcgBvAHAAZQBy
+AHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAALKg/26B3jNHs3AmtfZbQCsABCABAQgDIAAB
+BSABARERBCABAQ4FIAEBEVEEBwIODgQgABJhBCAAEmUFIAESaRwDIAAcAyAADgQAAQIOBAABAQ4F
+AAIBDg4GAAEScRF1BCAAEnkGIAIBDhJ5CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEkkD
+BhJNAwYSEAIGCAMGERQEAAASSQQAABJNBQABARJNBAAAEhADAAABBAgAEkkECAASTQQIABIQCAEA
+CAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF82YWRk
+NDgzMTcyMTU0ZmVkOGQzZjMxMjhkNmEwYzg2MAAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIy
+AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1l
+Ei5ORVQgRnJhbWV3b3JrIDQuNwC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVz
+b3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwg
+UHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVS
+ZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAGC4AAAAAAAAAAAAAMi4AAAAgAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAACQuAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAA
+AP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
+AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
+AAAAAAC9BO/+AAABAAAAAQCYcgcgAAABAJhyByA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
+AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
+MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
+AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
+AAAAAFMAVABfADYAYQBkAGQANAA4ADMAMQA3ADIAMQA1ADQAZgBlAGQAOABkADMAZgAzADEAMgA4
+AGQANgBhADAAYwA4ADYAMAAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
+LgA4ADEAOQA5AC4AMgA5ADMAMwA2AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+AFMAVABfADYAYQBkAGQANAA4ADMAMQA3ADIAMQA1ADQAZgBlAGQAOABkADMAZgAzADEAMgA4AGQA
+NgBhADAAYwA4ADYAMAAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
+AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgAyAAAAKgABAAEATABlAGcAYQBsAFQA
+cgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBu
+AGEAbQBlAAAAUwBUAF8ANgBhAGQAZAA0ADgAMwAxADcAMgAxADUANABmAGUAZAA4AGQAMwBmADMA
+MQAyADgAZAA2AGEAMABjADgANgAwAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
+AGUAAAAAAFMAVABfADYAYQBkAGQANAA4ADMAMQA3ADIAMQA1ADQAZgBlAGQAOABkADMAZgAzADEA
+MgA4AGQANgBhADAAYwA4ADYAMAAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
+ADEALgAwAC4AOAAxADkAOQAuADIAOQAzADMANgAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOAAxADkAOQAuADIAOQAzADMANgAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAABEPgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+            </ScriptProject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FRC_File_Loop File.PrecedenceConstraints[约束 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A6F59D81-1068-407A-AD3F-47559D6025B0}"
+          DTS:From="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="约束 1"
+          DTS:To="Package\FRC_File_Loop File\FST_Create BackupPath"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FRC_File_Loop File.PrecedenceConstraints[约束 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{19702911-12AC-4CCB-A26B-738205688582}"
+          DTS:From="Package\FRC_File_Loop File\FST_Create BackupPath"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="约束 2"
+          DTS:To="Package\FRC_File_Loop File\ST_File Backup" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{5F26A979-9DD4-40ED-A659-C1B7DF523462}"
+          DTS:ObjectName="{5F26A979-9DD4-40ED-A659-C1B7DF523462}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::varFilePath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[约束]"
+      DTS:CreationName=""
+      DTS:DTSID="{1177D825-1EA2-4093-8B5C-41E21B742135}"
+      DTS:From="Package\EST_Crear Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="约束"
+      DTS:To="Package\FRC_File_Loop File" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 部分包含包的布局信息。该部分包括(x,y)坐标、宽度和高度之类的信息。-->
+<!--如果您手动编辑此部分并且出错，则可以删除此部分。 -->
+<!--该包仍将能够正常加载，但以前的布局信息将丢失，并且设计器将自动在设计图面上重新排列这些元素。-->
+<Objects
+  Version="8">
+  <!--下面的每个节点都将包含不会影响运行时行为的属性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\EST_Crear Table"
+          TopLeft="359.375,21.5119052503654" />
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\FRC_File_Loop File\FST_Create BackupPath"
+          TopLeft="116.222222222221,358.137574012288" />
+        <NodeLayout
+          Size="224,42.6666666666667"
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB"
+          TopLeft="30.6666666666668,78.7142929814574" />
+        <NodeLayout
+          Size="140,42.6666666666667"
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\ET_SetFail"
+          TopLeft="67,153.523817339181" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\ET_varIsFailed"
+          TopLeft="60.8333333333333,9.52381458412231" />
+        <EdgeLayout
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB.PrecedenceConstraints[约束]"
+          TopLeft="142.75,52.190481250789">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.5238117306684"
+              Start="0,0"
+              End="0,19.0238117306684">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.0238117306684" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB.PrecedenceConstraints[约束 1]"
+          TopLeft="139.833333333333,121.380959648124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.1428576910569"
+              Start="0,0"
+              End="0,24.6428576910569">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.6428576910569" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.873046875,6.47767884552847,21.74609375,11.6875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="293.333333333334,251.333333333334"
+          Size="293.333333333334,294"
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB"
+          TopLeft="73.6666666666669,24.2857185307545" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\FRC_File_Loop File\ST_File Backup"
+          TopLeft="138.472222222221,425.666675030239" />
+        <EdgeLayout
+          Id="Package\FRC_File_Loop File.PrecedenceConstraints[约束 1]"
+          TopLeft="219.611111111111,318.285718530754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.8518554815331"
+              Start="0,0"
+              End="0,32.3518554815331">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3518554815331" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.873046875,10.3175293032665,21.74609375,11.716796875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FRC_File_Loop File.PrecedenceConstraints[约束 2]"
+          TopLeft="219.680555555554,400.804240678954">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.8624343512847"
+              Start="0,0"
+              End="0,17.3624343512847">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3624343512847" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="437.333333333334,526.666666666667"
+          Size="437.333333333334,570"
+          Id="Package\FRC_File_Loop File"
+          TopLeft="225,93.4166701842868" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[约束]"
+          TopLeft="443.854166666667,64.1785719170321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.2380982672547"
+              Start="0,0"
+              End="0,21.7380982672547">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.7380982672547" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标"
+          TopLeft="274.5,198.714290226398" />
+        <NodeLayout
+          Size="128,42.6666666666667"
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源"
+          TopLeft="285.5,113.904764491144" />
+        <EdgeLayout
+          Id="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB.Paths[Excel 源输出]"
+          TopLeft="348.333333333333,156.571431157811">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.1428590685872"
+              Start="0,0"
+              End="0,34.6428590685872">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.6428590685872" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\Excel 源">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FRC_File_Loop File\SC_Extract Data And Load Into DB\DFT_Extract Data Into DB\OLE DB 目标">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

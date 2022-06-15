@@ -1,0 +1,757 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/14/2022 10:12:57 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DOUBLL"
+  DTS:CreatorName="DOUBLL\Administrator"
+  DTS:DTSID="{311DD94C-CA8B-4F12-878D-51D4F258733E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="2052"
+  DTS:ObjectName="Excel255"
+  DTS:PackageType="5"
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{518D5442-2C26-4CE8-9C72-6A41A92AE76C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0419D69C-DBA5-4E22-AADE-3ACB51FEA7B7}"
+      DTS:ObjectName="DOUBLL\MSSQL_ADMIN.Task_03.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DOUBLL\MSSQL_ADMIN;User ID=sa;Initial Catalog=Task_03;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACupP7BK1HDF3CPefY9Y4CrrDaSoKeeUJFxNNj28XKDSAAAAAAOgAAAAAIAACAAAADOifUwo57SeaNtaiEAGT5efCPs7JzrhpdgJnpaKpOMeiAAAAAcswfWJSaaHSOKKdyZmas0D7+uB4twxN2PgeHRb5xwZ0AAAACvVVPURZZ0SbSJ72NrHpA/uRMUX0HEF92LH2hEit4VH6S+NYHOVX0qsAPPVjcnhMU3OYku03rsxOguV5msi5A/</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel 连接管理器]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{55A99404-AC97-44F4-AFCC-790C91977B95}"
+      DTS:ObjectName="Excel 连接管理器">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\桌面\peixun\Excel255\File_20200601.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[平面文件连接管理器]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{21A4B473-C239-4C8C-AFD8-6AEA133F066D}"
+      DTS:ObjectName="平面文件连接管理器">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2052"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="936"
+          DTS:ConnectionString="D:\桌面\peixun\Excel255\Customer.CSV">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{0C31588E-5406-447E-871F-B27A9021C131}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{6949B9F1-4BC4-49F4-87A0-9B6A1B32AA91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{D771317E-BB3D-4B69-86D1-BAC28A394717}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Zip"
+              DTS:DTSID="{FA11FDA3-7864-4BA1-A5A8-55CE6131AC85}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{E579B348-3377-4A95-B684-62FED1D5F457}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3A27D78B-5DC6-42B4-ABA4-370B6B72DD27}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varBackUpFilePathFail">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\桌面\peixun\Excel255\backup\fail</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2F5862EB-82B4-4339-9958-594AE5E00E73}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varBackUpFilePathSucc">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\桌面\peixun\Excel255\backup\succ</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8FA99BCE-9FE2-4D4E-8544-4B3A64BAF6E6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFilePathCSV">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\桌面\peixun\Excel255\Customer.CSV</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C0ED7B85-902A-4A4B-9ED1-2A0FD9882E31}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFilePathExcel">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\桌面\peixun\Excel255\File_20200601.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8E87C7E3-AB80-489B-B738-8011EA4C27A3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varSheetName">
+      <DTS:VariableValue
+        DTS:DataType="8">City$</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Excel255 to Sql"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="数据流任务"
+      DTS:DTSID="{3159CCCD-AA65-46A3-99D6-C6D4633FA096}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Excel255 to Sql"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Excel255 to Sql\Excel 源"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel 源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;1"
+              description="Excel 源"
+              name="Excel 源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用于打开行集的数据库对象的名称。"
+                  name="OpenRowset">City$</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用于打开行集的数据库对象名的变量。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要执行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="包含要执行的 SQL 命令的变量。"
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用于访问数据库的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="从 SQL 命令中的参数到变量的映射。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Excel255 to Sql\Excel 源.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel 连接管理器]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel 连接管理器]"
+                  description="指定用于访问数据库的 OLE DB 运行时连接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出]"
+                  name="Excel 源输出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[id]"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[City]"
+                      length="255"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[State]"
+                      length="255"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[Zip]"
+                      dataType="r8"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[Zip]"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[Zip]"
+                      name="Zip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[Country]"
+                      dataType="nText"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[Country]"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[id]"
+                      dataType="r8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[Zip]"
+                      dataType="r8"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].ExternalColumns[Country]"
+                      dataType="nText"
+                      name="Country" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出]"
+                  isErrorOut="true"
+                  name="Excel 源错误输出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[id]"
+                      dataType="r8"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[City]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[State]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[Zip]"
+                      dataType="r8"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[Zip]"
+                      name="Zip" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[Country]"
+                      dataType="nText"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Excel255 to Sql\OLE DB 目标"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目标;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目标"
+              name="OLE DB 目标"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用于打开行集的数据库对象的名称。"
+                  name="OpenRowset">[dbo].[Excel255_01]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用于打开行集的数据库对象名的变量。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要执行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定当数据源中没有代码页信息时使用的列代码页。"
+                  name="DefaultCodePage">936</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字符数据时，强制使用 DefaultCodePage 属性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用于访问数据库的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指示是否将为标识列提供的值复制到目标。如果设置为 False，则将在目标中为标识列自动生成值。仅当启用了快速加载时适用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指示对于包含 Null 值的列是否将 Null 值插入目标中。如果为 False，则对于包含 Null 值的列会将其默认值插入目标中。仅当启用了快速加载时适用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定将用于快速加载的选项。仅当启用了快速加载时适用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在插入数据期间何时发出提交命令。如果值为 0，则指定在数据插入结束时发出一个提交命令。仅当启用了快速加载时适用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Excel255 to Sql\OLE DB 目标.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+                  description="指定用于访问数据库的 OLE DB 运行时连接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目标输入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[id]"
+                      cachedDataType="r8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Id]"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[City]"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[State]"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[Zip]"
+                      cachedDataType="r8"
+                      cachedName="Zip"
+                      externalMetadataColumnId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Zip]"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[Zip]" />
+                    <inputColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[Country]"
+                      cachedDataType="nText"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Country]"
+                      lineageId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出].Columns[Country]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Zip]"
+                      dataType="wstr"
+                      length="255"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Country]"
+                      dataType="nText"
+                      name="Country" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Excel255 to Sql\OLE DB 目标.Outputs[OLE DB 目标错误输出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目标错误输出"
+                  synchronousInputId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Excel255 to Sql\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Excel255 to Sql\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Excel255 to Sql\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Excel255 to Sql.Paths[Excel 源输出]"
+              endId="Package\Excel255 to Sql\OLE DB 目标.Inputs[OLE DB 目标输入]"
+              name="Excel 源输出"
+              startId="Package\Excel255 to Sql\Excel 源.Outputs[Excel 源输出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fail"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="文件系统任务"
+      DTS:DTSID="{ea8299ae-4feb-41ef-964a-990a9b408b3f}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fail"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::varFilePathExcel"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::varBackUpFilePathFail"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\succ"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="文件系统任务"
+      DTS:DTSID="{8fac8b7f-e426-4076-954b-541f64ede221}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="succ"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="MoveFile"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::varFilePathExcel"
+          TaskIsSourceVariable="True"
+          TaskDestinationPath="User::varBackUpFilePathSucc"
+          TaskIsDestinationVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[约束]"
+      DTS:CreationName=""
+      DTS:DTSID="{DAD23352-4A7A-4530-B601-341F2DC35598}"
+      DTS:From="Package\Excel255 to Sql"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="约束"
+      DTS:To="Package\succ" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[约束 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB531476-C728-45E4-BE4B-99CBA3A62BD8}"
+      DTS:From="Package\Excel255 to Sql"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="约束 1"
+      DTS:To="Package\Fail"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 部分包含包的布局信息。该部分包括(x,y)坐标、宽度和高度之类的信息。-->
+<!--如果您手动编辑此部分并且出错，则可以删除此部分。 -->
+<!--该包仍将能够正常加载，但以前的布局信息将丢失，并且设计器将自动在设计图面上重新排列这些元素。-->
+<Objects
+  Version="8">
+  <!--下面的每个节点都将包含不会影响运行时行为的属性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Excel255 to Sql"
+          TopLeft="220.624996712431,17.3333328741568" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Fail"
+          TopLeft="425.624993657693,83.0555533553348" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\succ"
+          TopLeft="243.124996377155,85.7777748696599" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[约束]"
+          TopLeft="305.024996712431,58.9333328741568">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.2999996647243,26.8444419955031"
+              Start="0,0"
+              End="13.2999996647243,19.3444419955031">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.42222099775154" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.42222099775154"
+                    Point2="0,13.4222209977515"
+                    Point3="4,13.4222209977515" />
+                  <mssgle:LineSegment
+                    End="9.29999966472428,13.4222209977515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.29999966472428,13.4222209977515"
+                    Point2="13.2999996647243,13.4222209977515"
+                    Point3="13.2999996647243,17.4222209977515" />
+                  <mssgle:LineSegment
+                    End="13.2999996647243,19.3444419955031" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[约束 1]"
+          TopLeft="331.824996712431,58.9333328741568">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="168.999996945262,24.1222204811779"
+              Start="0,0"
+              End="168.999996945262,16.6222204811779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,5.78478802616796" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,5.78478802616796"
+                    Point2="0,9.78478802616796"
+                    Point3="4,9.78478802616796" />
+                  <mssgle:LineSegment
+                    End="164.999996945262,9.78478802616796" />
+                  <mssgle:CubicBezierSegment
+                    Point1="164.999996945262,9.78478802616796"
+                    Point2="168.999996945262,9.78478802616796"
+                    Point3="168.999996945262,13.784788026168" />
+                  <mssgle:LineSegment
+                    End="168.999996945262,16.6222204811779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="73.6269515976312,14.784788026168,21.74609375,11.6875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Excel255 to Sql">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Excel255 to Sql\OLE DB 目标"
+          TopLeft="449.999993294478,46.7666655761225" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Excel255 to Sql\Excel 源"
+          TopLeft="155.624997681007,31.0555547328643" />
+        <EdgeLayout
+          Id="Package\Excel255 to Sql.Paths[Excel 源输出]"
+          TopLeft="282.024997681007,51.8555547328643">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167.974995613471,15.7111108432582"
+              Start="0,0"
+              End="160.474995613471,15.7111108432582">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="79.9874978067353,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.9874978067353,0"
+                    Point2="83.9874978067353,0"
+                    Point3="83.9874978067353,4" />
+                  <mssgle:LineSegment
+                    End="83.9874978067353,11.7111108432582" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.9874978067353,11.7111108432582"
+                    Point2="83.9874978067353,15.7111108432582"
+                    Point3="87.9874978067353,15.7111108432582" />
+                  <mssgle:LineSegment
+                    End="160.474995613471,15.7111108432582" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Excel255 to Sql\Excel 源">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Excel255 to Sql\OLE DB 目标">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

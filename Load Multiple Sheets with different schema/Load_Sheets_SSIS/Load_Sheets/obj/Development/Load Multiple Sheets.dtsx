@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/2/2022 10:40:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-5AFDBQK"
+  DTS:CreatorName="DESKTOP-5AFDBQK\Administrator"
+  DTS:DTSID="{6B802A43-F1CC-4644-A9F5-40631E4A9263}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="2052"
+  DTS:ObjectName="Load Multiple Sheets"
+  DTS:PackageType="5"
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{7F936EC1-47AE-445D-91D7-1F0D59093A59}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[D:\桌面\peixun\Load Multiple Sheets with different schema\File\File_20200601.xlsx]"
+      DTS:CreationName="ADO.NET:OLEDB"
+      DTS:DTSID="{62087665-7E7D-44B5-8EE7-D520A1AB7FC3}"
+      DTS:ObjectName="D:\桌面\peixun\Load Multiple Sheets with different schema\File\File_20200601.xlsx">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"Data Source="+ @[User::FilePath]   +";Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=Excel 12.0;"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=D:\桌面\peixun\Load Multiple Sheets with different schema\Data\File_20200602.xlsx;Provider=Microsoft.ACE.OLEDB.12.0;Extended Properties=Excel 12.0;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-5AFDBQK\MSSQL_ADMIN.tmp.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{19840084-0188-45BF-9E69-D1A839876FE3}"
+      DTS:ObjectName="DESKTOP-5AFDBQK\MSSQL_ADMIN.tmp.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-5AFDBQK\MSSQL_ADMIN;User ID=sa;Initial Catalog=tmp;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Tag with column collation when possible=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADtg+Anbg77LhmMXL00DCyB0vfHcZgq8c5838S6oV0JOgAAAAAOgAAAAAIAACAAAACkoOBBkfd+04HLYiifaNOTEU0Pay3hnNcnzUfgkghKxSAAAACRFYSx3mwpY9k1L/hvkXFFCPtw75VfavbNG2MT9m26qkAAAAB/6ScEiks5jSu2FJUBmSp5OIt1TVJ5GB9Vpk55Xup07VM3RPYMNHkJvk5b2IkZNeD6RVAG9vSctmjelicebcnU</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel 连接管理器]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{07CF5E49-D3D1-4006-AF33-09A10F02D6AD}"
+      DTS:ObjectName="Excel 连接管理器">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::FilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\桌面\peixun\Load Multiple Sheets with different schema\Data\File_20200602.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{14A2CE99-A3A1-4912-9CFC-7BC5B7B72FBC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\桌面\peixun\Load Multiple Sheets with different schema\Data\File_20200602.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3E4E303-8599-40C7-A205-F24FE345C643}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName">
+      <DTS:VariableValue
+        DTS:DataType="8">EmCi$</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{845BD799-F0D0-4FDC-85BB-2E69DC2C1681}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName_City">
+      <DTS:VariableValue
+        DTS:DataType="8">City$</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CF0115FB-F216-4669-909D-FA888A7DC5C6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName_Employee">
+      <DTS:VariableValue
+        DTS:DataType="8">Employee$</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C3713855-9253-41F6-B814-4690A66221F0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetName_Employee01">
+      <DTS:VariableValue
+        DTS:DataType="8">Employee_01$</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7590A0D7-4956-42C5-BB26-D64D966BEB6D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SheetNmae_EmCi">
+      <DTS:VariableValue
+        DTS:DataType="8">EmCi$</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach excel"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach 循环容器"
+      DTS:DTSID="{9E106E2D-DC02-4772-B442-7EDE0569E54A}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach excel">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{BD18DE5E-1EDF-4108-9C23-05CAF8D8A1E5}"
+        DTS:ObjectName="{BD18DE5E-1EDF-4108-9C23-05CAF8D8A1E5}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\桌面\peixun\Load Multiple Sheets with different schema\Data" />
+            <FEFEProperty
+              FileSpec="*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach excel\Foreach sheet"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach 循环容器"
+          DTS:DTSID="{967034f1-c702-476f-b5b0-e804477da8bd}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach sheet">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachSchemaRowsetEnumerator"
+            DTS:DTSID="{ed2bc781-eb7e-464a-ba57-9ab44a5e055e}"
+            DTS:ObjectName="{09A1EE90-0735-4E26-9933-0AAD27640196}">
+            <DTS:ObjectData>
+              <FEESchemaRowset
+                Connection="D:\桌面\peixun\Load Multiple Sheets with different schema\File\File_20200601.xlsx"
+                Schema="c8b52229-5cf3-11ce-ade5-00aa0044773d" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Foreach excel\Foreach sheet\执行包任务"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="执行包任务"
+              DTS:DTSID="{CDFB93C1-91E2-4E93-B32A-9F7B4EA47966}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="执行包任务"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>Load_Data.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>SheetName</ParameterName>
+                    <BindedVariableOrParameterName>User::SheetName</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>FilePath</ParameterName>
+                    <BindedVariableOrParameterName>User::FilePath</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>SheetName_City</ParameterName>
+                    <BindedVariableOrParameterName>User::SheetName_City</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>SheetName_Employee</ParameterName>
+                    <BindedVariableOrParameterName>User::SheetName_Employee</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>SheetNmae_EmCi</ParameterName>
+                    <BindedVariableOrParameterName>User::SheetNmae_EmCi</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>SheetName_Employee01</ParameterName>
+                    <BindedVariableOrParameterName>User::SheetName_Employee01</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{71FBE802-EA4C-4A2F-B995-92D9B16F7AB8}"
+              DTS:ObjectName="{71FBE802-EA4C-4A2F-B995-92D9B16F7AB8}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::SheetName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{C0C95ECF-3BDC-4E7F-92D5-09DADBEF740C}"
+          DTS:ObjectName="{C0C95ECF-3BDC-4E7F-92D5-09DADBEF740C}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FilePath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\执行 SQL 任务"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="执行 SQL 任务"
+      DTS:DTSID="{6439054D-BE95-481C-A2F7-26AADDBA5CC7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="执行 SQL 任务"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{19840084-0188-45BF-9E69-D1A839876FE3}"
+          SQLTask:SqlStatementSource="truncate table [dbo].[EmCi];&#xA;truncate table [dbo].[tblCity];&#xA;truncate table [dbo].[tblEmployee];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[约束]"
+      DTS:CreationName=""
+      DTS:DTSID="{FCE2B13A-1DD4-48B1-B1AD-59C6F0C71B0E}"
+      DTS:From="Package\执行 SQL 任务"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="约束"
+      DTS:To="Package\Foreach excel" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 部分包含包的布局信息。该部分包括(x,y)坐标、宽度和高度之类的信息。-->
+<!--如果您手动编辑此部分并且出错，则可以删除此部分。 -->
+<!--该包仍将能够正常加载，但以前的布局信息将丢失，并且设计器将自动在设计图面上重新排列这些元素。-->
+<Objects
+  Version="8">
+  <!--下面的每个节点都将包含不会影响运行时行为的属性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Foreach excel\Foreach sheet\执行包任务"
+          TopLeft="89.999980330468,29.9285507919847" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="288.8,128"
+          Size="288.8,171.2"
+          Id="Package\Foreach excel\Foreach sheet"
+          TopLeft="42.8750260863444,22.5476082885982" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="336.8,251.2"
+          Size="336.8,294.4"
+          Id="Package\Foreach excel"
+          TopLeft="285.691605446697,143.928564075305" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\执行 SQL 任务"
+          TopLeft="418.833316908942,28.714284528275" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[约束]"
+          TopLeft="497.233316908942,70.314284528275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.1417114622454,73.61427954703"
+              Start="0,0"
+              End="-43.1417114622454,66.11427954703">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.807139773515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.807139773515"
+                    Point2="0,36.807139773515"
+                    Point3="-4,36.807139773515" />
+                  <mssgle:LineSegment
+                    End="-39.1417114622454,36.807139773515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.1417114622454,36.807139773515"
+                    Point2="-43.1417114622454,36.807139773515"
+                    Point3="-43.1417114622454,40.807139773515" />
+                  <mssgle:LineSegment
+                    End="-43.1417114622454,66.11427954703" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
