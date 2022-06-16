@@ -26,3 +26,8 @@
 
 处理场景：
 将Excel File数据导入到sql server数据库中，使用Script Task。
+
+# 文件夹Balanced Data Distributor
+
+处理场景：
+在ETL中有时候提取的单个数据文件很大，超过100M，甚至更大，通常使用数据流任务将文件中的数据加载到数据库的表中。
