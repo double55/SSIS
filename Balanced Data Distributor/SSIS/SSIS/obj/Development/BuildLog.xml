@@ -2,23 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSIS</Name>
-    <LastWriteTime>2022-06-15T14:02:29.351882Z</LastWriteTime>
+    <LastWriteTime>2022-06-15T23:22:52.2734919Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Excel255_Script_Task.dtsx</Name>
-      <LastWriteTime>2022-06-15T02:43:55.4863469Z</LastWriteTime>
+      <Name>Balanced_Data_Distributor.dtsx</Name>
+      <LastWriteTime>2022-06-16T02:27:57.0431837Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Excel255.dtsx</Name>
-      <LastWriteTime>2022-06-15T02:49:38.3371737Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Excel255_DataConcer.dtsx</Name>
-      <LastWriteTime>2022-06-15T14:02:17.2768465Z</LastWriteTime>
+      <Name>BigFile.dtsx</Name>
+      <LastWriteTime>2022-06-16T02:27:54.3478184Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

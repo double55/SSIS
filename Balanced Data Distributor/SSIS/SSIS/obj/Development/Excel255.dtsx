@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2022 9:23:18 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DOUBLL"
+  DTS:CreatorName="DOUBLL\Administrator"
+  DTS:DTSID="{62CC7AFF-F51E-4CBF-8A92-6D61CC989C56}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="2052"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{68361444-5CD7-4D83-9253-336D2A863059}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6405684F-C37E-4116-91A5-CFE4A2A755CA}"
+      DTS:ObjectName="DOUBLL\MSSQL_ADMIN.Task_03.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DOUBLL\MSSQL_ADMIN;User ID=sa;Initial Catalog=Task_03;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACKjy2LT71tRD9OVWFyuXcXiKfhIxbHkwzoe9Hf2cyrBAAAAAAOgAAAAAIAACAAAABxPJ9jqSKYu1pnHr/wH+rNliEYxKPdnEjUCLxG+3hvaiAAAACm8h8iAZfMk+vjQ632gg+3D9vpd2SXiK+Iu6N5QneUh0AAAADRLAfCxKHaPfpPZr4GWYhfbmTr4L4pNpzXnd3xZ7d61MQIFK3JcHRoxEVkmd/K1oXibVfiD9VdXhQ8yYXXjxWy</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel 连接管理器]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4223BDD1-11A4-4FB8-9F5A-5435D8C51E93}"
+      DTS:ObjectName="Excel 连接管理器">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\桌面\peixun\Excel255\File_20200601.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\数据流任务"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="数据流任务"
+      DTS:DTSID="{AD8BE1C9-E994-4020-93FD-F332DBCABAA2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="数据流任务"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\数据流任务\Excel 源"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel 源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;1"
+              description="Excel 源"
+              name="Excel 源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用于打开行集的数据库对象的名称。"
+                  name="OpenRowset">City$</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用于打开行集的数据库对象名的变量。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要执行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="包含要执行的 SQL 命令的变量。"
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用于访问数据库的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="从 SQL 命令中的参数到变量的映射。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\数据流任务\Excel 源.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel 连接管理器]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel 连接管理器]"
+                  description="指定用于访问数据库的 OLE DB 运行时连接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出]"
+                  name="Excel 源输出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[id]"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[City]"
+                      length="255"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[State]"
+                      length="255"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[Zip]"
+                      dataType="r8"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[Zip]"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[Zip]"
+                      name="Zip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[Country]"
+                      dataType="nText"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[Country]"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[id]"
+                      dataType="r8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[Zip]"
+                      dataType="r8"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].ExternalColumns[Country]"
+                      dataType="nText"
+                      name="Country" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出]"
+                  isErrorOut="true"
+                  name="Excel 源错误输出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[id]"
+                      dataType="r8"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[City]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[State]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[Zip]"
+                      dataType="r8"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[Zip]"
+                      name="Zip" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[Country]"
+                      dataType="nText"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\数据流任务\OLE DB 目标"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目标;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目标"
+              name="OLE DB 目标"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用于打开行集的数据库对象的名称。"
+                  name="OpenRowset">[dbo].[Excel255]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用于打开行集的数据库对象名的变量。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要执行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定当数据源中没有代码页信息时使用的列代码页。"
+                  name="DefaultCodePage">936</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字符数据时，强制使用 DefaultCodePage 属性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用于访问数据库的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指示是否将为标识列提供的值复制到目标。如果设置为 False，则将在目标中为标识列自动生成值。仅当启用了快速加载时适用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指示对于包含 Null 值的列是否将 Null 值插入目标中。如果为 False，则对于包含 Null 值的列会将其默认值插入目标中。仅当启用了快速加载时适用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定将用于快速加载的选项。仅当启用了快速加载时适用。"
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在插入数据期间何时发出提交命令。如果值为 0，则指定在数据插入结束时发出一个提交命令。仅当启用了快速加载时适用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\数据流任务\OLE DB 目标.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+                  description="指定用于访问数据库的 OLE DB 运行时连接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目标输入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[id]"
+                      cachedDataType="r8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Id]"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[id]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[City]"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[City]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[State]"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[State]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[Zip]"
+                      cachedDataType="r8"
+                      cachedName="Zip"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Zip]"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[Zip]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[Country 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="3000"
+                      cachedName="Country 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Country]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[Country 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Zip]"
+                      dataType="wstr"
+                      length="255"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Country" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目标错误输出"
+                  synchronousInputId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\数据流任务\数据转换"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="数据转换;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;0"
+              description="数据转换"
+              name="数据转换"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\数据流任务\数据转换.Inputs[数据转换输入]"
+                  name="数据转换输入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[Country]"
+                      cachedDataType="nText"
+                      cachedName="Country"
+                      lineageId="Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[Country]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\数据流任务\数据转换.Outputs[数据转换输出]"
+                  exclusionGroup="1"
+                  name="数据转换输出"
+                  synchronousInputId="Package\数据流任务\数据转换.Inputs[数据转换输入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[Country 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="3000"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[Country 的副本]"
+                      name="Country 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\Excel 源.Outputs[Excel 源输出].Columns[Country]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\数据流任务\数据转换.Outputs[数据转换错误输出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="数据转换错误输出"
+                  synchronousInputId="Package\数据流任务\数据转换.Inputs[数据转换输入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\数据流任务.Paths[Excel 源输出]"
+              endId="Package\数据流任务\数据转换.Inputs[数据转换输入]"
+              name="Excel 源输出"
+              startId="Package\数据流任务\Excel 源.Outputs[Excel 源输出]" />
+            <path
+              refId="Package\数据流任务.Paths[数据转换输出]"
+              endId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入]"
+              name="数据转换输出"
+              startId="Package\数据流任务\数据转换.Outputs[数据转换输出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 部分包含包的布局信息。该部分包括(x,y)坐标、宽度和高度之类的信息。-->
+<!--如果您手动编辑此部分并且出错，则可以删除此部分。 -->
+<!--该包仍将能够正常加载，但以前的布局信息将丢失，并且设计器将自动在设计图面上重新排列这些元素。-->
+<Objects
+  Version="8">
+  <!--下面的每个节点都将包含不会影响运行时行为的属性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\数据流任务"
+          TopLeft="106.666662428114,72.428567728218" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\数据流任务">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="127,42"
+          Id="Package\数据流任务\Excel 源"
+          TopLeft="266.666656070286,118.857136784768" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\数据流任务\数据转换"
+          TopLeft="259.999989668529,233.071416663881" />
+        <EdgeLayout
+          Id="Package\数据流任务.Paths[Excel 源输出]"
+          TopLeft="326.833322869407,160.857136784768">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.2142798791129"
+              Start="0,0"
+              End="0,64.7142798791129">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.7142798791129" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145,42"
+          Id="Package\数据流任务\OLE DB 目标"
+          TopLeft="262.499989569188,364.928552784483" />
+        <EdgeLayout
+          Id="Package\数据流任务.Paths[数据转换输出]"
+          TopLeft="323.499989668529,275.071416663881">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.4999999006589,89.8571361206019"
+              Start="0,0"
+              End="11.4999999006589,82.3571361206019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.928568060301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.928568060301"
+                    Point2="0,44.928568060301"
+                    Point3="4,44.928568060301" />
+                  <mssgle:LineSegment
+                    End="7.49999990065891,44.928568060301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.49999990065891,44.928568060301"
+                    Point2="11.4999999006589,44.928568060301"
+                    Point3="11.4999999006589,48.928568060301" />
+                  <mssgle:LineSegment
+                    End="11.4999999006589,82.3571361206019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\数据流任务\Excel 源">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\数据流任务\OLE DB 目标">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

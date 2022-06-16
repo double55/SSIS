@@ -6,7 +6,7 @@ create TABLE [dbo].[Excel255](
 	[City] [nvarchar](255) NULL,
 	[State] [nvarchar](255) NULL,
 	[Zip] [nvarchar](255) NULL,
-	[Country] [text] NULL
+	[Country] [nvarchar](3000) NULL
 ) ON [PRIMARY]
 
 IF OBJECT_ID('Excel255_01', 'U') IS NOT NULL 
@@ -20,5 +20,6 @@ create TABLE [dbo].[Excel255_01](
 ) ON [PRIMARY]
 
 select * from [dbo].[Excel255];
+truncate table [dbo].[Excel255];
 
 select * from [dbo].[Excel255_01];

@@ -1,0 +1,1708 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2022 9:23:18 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DOUBLL"
+  DTS:CreatorName="DOUBLL\Administrator"
+  DTS:DTSID="{45B2787E-62A0-4CF3-9742-0A63CE5B3988}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="2052"
+  DTS:ObjectName="BigFile"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{F3E842B5-A204-45E5-9382-80F5644176E4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{49176805-034C-40A0-976D-28C61B07ADDF}"
+      DTS:ObjectName="DOUBLL\MSSQL_ADMIN.Task_03.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DOUBLL\MSSQL_ADMIN;User ID=sa;Initial Catalog=Task_03;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACmPu8AZTzSZUvskOl/LW9LTxDUmhlLhz+MoPPQXGgnaQAAAAAOgAAAAAIAACAAAADAS6k992VvmQUtFZztr+NdosAlsqtVkbcshFa2bnPs6CAAAABCuHMYA4g/xRdzgVSFngKKIS1WI5F4O8lFj8iU1iOetUAAAAAmQDqKmZ6NQEes9lMqzMw8n7M3UhK+daJcC/hACWsL7WBYnbDDsKEF2Zu+Dr2bfhzrW2oDoNfAcbx7KhF6TGLR</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[historical_transactions]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FBB19211-135E-496C-8B1C-7A3F1805124C}"
+      DTS:ObjectName="historical_transactions">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::varFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2052"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="936"
+          DTS:ConnectionString="D:\桌面\peixun\Balanced Data Distributor\historical_transactions.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="authorized_flag"
+              DTS:DTSID="{335D062E-17F9-4D9A-B313-4639FB365C46}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="card_id"
+              DTS:DTSID="{65BFF3BA-8A0A-4394-ABCE-06CC8E0690C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="city_id"
+              DTS:DTSID="{B133717C-E300-482C-8F27-5040AB9C2328}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_1"
+              DTS:DTSID="{51D8D60E-E4E5-4B8A-B87A-EE480153E16F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="installments"
+              DTS:DTSID="{C8ACAE2A-3074-4634-AA61-F062E9D29AFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_3"
+              DTS:DTSID="{1146E12F-C407-4F21-A1B5-733465F62D9F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="merchant_category_id"
+              DTS:DTSID="{BFA8B2D8-9E74-4BC2-B122-B889EF8CC3A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="merchant_id"
+              DTS:DTSID="{A3BB4414-0098-4F55-9846-559A53BBB8C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="month_lag"
+              DTS:DTSID="{5AB4ED35-5AF1-47CF-B05B-DA62713B3D81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purchase_amount"
+              DTS:DTSID="{6CD713C9-6E73-4F42-B738-950CA98F4E87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purchase_date"
+              DTS:DTSID="{56511F37-17C7-4844-A817-CFBF67A2D709}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_2"
+              DTS:DTSID="{35A02B91-0E63-4833-B400-47B56A88288D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="state_id"
+              DTS:DTSID="{B1C23D56-F160-4099-8E23-0ABE9806DF81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="subsector_id"
+              DTS:DTSID="{14FFD49B-EC2A-4599-8EE6-9C18BB334E87}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[new_merchant_transactions]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{761A57F7-6649-4B59-AD1D-B8A55FF71F1D}"
+      DTS:ObjectName="new_merchant_transactions">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2052"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="936"
+          DTS:ConnectionString="D:\桌面\peixun\Balanced Data Distributor\new_merchant_transactions.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="authorized_flag"
+              DTS:DTSID="{38CBD790-0F16-41C1-BC6F-F39A54E7FD43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="card_id"
+              DTS:DTSID="{E5B7B8E1-BBAE-4A40-B15E-6E2AB868A0B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="city_id"
+              DTS:DTSID="{78AAD5FD-A034-42C1-A884-597C98703DC0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_1"
+              DTS:DTSID="{63829F3A-FE16-467D-8B4D-4CF5B72C9A11}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="installments"
+              DTS:DTSID="{9C7761DC-BDBF-4724-ABD7-89CE968F00E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_3"
+              DTS:DTSID="{EA1E0425-F653-4794-952B-8A70A510E73F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="merchant_category_id"
+              DTS:DTSID="{D8FBE7CF-ECD9-4927-B897-4E208309B083}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="merchant_id"
+              DTS:DTSID="{5AF7E523-10D8-4C2C-825D-4532A1AD6107}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="month_lag"
+              DTS:DTSID="{A6DC5D43-F656-467A-AF9F-AED954AB3B35}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purchase_amount"
+              DTS:DTSID="{DA50962D-FB68-45D6-A8BD-2D141BCCC9C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purchase_date"
+              DTS:DTSID="{D292F6B9-9711-4156-8222-224D9564745B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="category_2"
+              DTS:DTSID="{D9309224-73D4-4C69-B695-CFC537BAC153}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="state_id"
+              DTS:DTSID="{E120F005-0B98-4F21-BA69-DB59F0FE35FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="subsector_id"
+              DTS:DTSID="{A1AF96AB-3489-415A-AB1B-EF927E449868}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{6FECBF30-957C-4E3A-ADAD-E6F5A3319516}"
+      DTS:ObjectName="pFilePath"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\桌面\peixun\Balanced Data Distributor\historical_transactions.csv</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{906860B3-8FAD-476C-94D3-BCD1C0B2FA1D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::pFilePath]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\桌面\peixun\Balanced Data Distributor\historical_transactions.csv</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\执行 SQL 任务"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="执行 SQL 任务"
+      DTS:DTSID="{30927053-182E-4B7A-BB74-39E5F6D08F5C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="执行 SQL 任务"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{49176805-034C-40A0-976D-28C61B07ADDF}"
+          SQLTask:SqlStatementSource="truncate table [dbo].[transactions_01];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\数据流任务"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="数据流任务"
+      DTS:DTSID="{170EB866-5212-4726-B33C-6BA7CB621C30}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="数据流任务"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\数据流任务\OLE DB 目标"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目标;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目标"
+              name="OLE DB 目标"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令超时前等待的时间(秒)。值为 0，表示无限期等待。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用于打开行集的数据库对象的名称。"
+                  name="OpenRowset">[dbo].[transactions_01]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用于打开行集的数据库对象名的变量。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要执行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定当数据源中没有代码页信息时使用的列代码页。"
+                  name="DefaultCodePage">936</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字符数据时，强制使用 DefaultCodePage 属性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用于访问数据库的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指示是否将为标识列提供的值复制到目标。如果设置为 False，则将在目标中为标识列自动生成值。仅当启用了快速加载时适用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指示对于包含 Null 值的列是否将 Null 值插入目标中。如果为 False，则对于包含 Null 值的列会将其默认值插入目标中。仅当启用了快速加载时适用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定将用于快速加载的选项。仅当启用了快速加载时适用。"
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在插入数据期间何时发出提交命令。如果值为 0，则指定在数据插入结束时发出一个提交命令。仅当启用了快速加载时适用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\数据流任务\OLE DB 目标.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[DOUBLL\MSSQL_ADMIN.Task_03.sa]"
+                  description="指定用于访问数据库的 OLE DB 运行时连接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目标输入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[authorized_flag 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="authorized_flag 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[authorized_flag]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[authorized_flag 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[card_id 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="card_id 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[card_id]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[card_id 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[city_id 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city_id 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[city_id]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[city_id 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[category_1 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category_1 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[category_1]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_1 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[installments 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="installments 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[installments]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[installments 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[category_3 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category_3 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[category_3]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_3 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[category_2 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category_2 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[category_2]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_2 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[merchant_category_id 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="merchant_category_id 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[merchant_category_id]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[merchant_category_id 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[merchant_id 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="merchant_id 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[merchant_id]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[merchant_id 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[month_lag 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="month_lag 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[month_lag]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[month_lag 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[purchase_date 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="purchase_date 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[purchase_date]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[purchase_date 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[state_id 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state_id 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[state_id]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[state_id 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[subsector_id 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="subsector_id 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[subsector_id]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[subsector_id 的副本]" />
+                    <inputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].Columns[purchase_amount 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="purchase_amount 的副本"
+                      externalMetadataColumnId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[purchase_amount]"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[purchase_amount 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[authorized_flag]"
+                      dataType="wstr"
+                      length="255"
+                      name="authorized_flag" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[card_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="card_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[city_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="city_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[category_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="category_1" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[installments]"
+                      dataType="wstr"
+                      length="255"
+                      name="installments" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[category_3]"
+                      dataType="wstr"
+                      length="255"
+                      name="category_3" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[category_2]"
+                      dataType="wstr"
+                      length="255"
+                      name="category_2" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[merchant_category_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="merchant_category_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[merchant_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="merchant_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[month_lag]"
+                      dataType="wstr"
+                      length="255"
+                      name="month_lag" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[purchase_date]"
+                      dataType="wstr"
+                      length="255"
+                      name="purchase_date" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[state_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="state_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[subsector_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="subsector_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入].ExternalColumns[purchase_amount]"
+                      dataType="wstr"
+                      length="255"
+                      name="purchase_amount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目标错误输出"
+                  synchronousInputId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\OLE DB 目标.Outputs[OLE DB 目标错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\数据流任务\平面文件源"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="平面文件源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;1"
+              description="平面文件源"
+              localeId="2052"
+              name="平面文件源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="指定是否将长度为 0 的列视为 Null。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含该文件名的输出列的名称。如果未指定名称，则不会生成包含该文件名的输出列。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\数据流任务\平面文件源.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[historical_transactions]"
+                  connectionManagerRefId="Package.ConnectionManagers[historical_transactions]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出]"
+                  name="平面文件源输出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[authorized_flag]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[authorized_flag]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[authorized_flag]"
+                      name="authorized_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[card_id]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[card_id]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[card_id]"
+                      name="card_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[city_id]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[city_id]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[city_id]"
+                      name="city_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_1]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[category_1]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_1]"
+                      name="category_1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[installments]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[installments]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[installments]"
+                      name="installments"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_3]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[category_3]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_3]"
+                      name="category_3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[merchant_category_id]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[merchant_category_id]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[merchant_category_id]"
+                      name="merchant_category_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[merchant_id]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[merchant_id]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[merchant_id]"
+                      name="merchant_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[month_lag]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[month_lag]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[month_lag]"
+                      name="month_lag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[purchase_amount]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[purchase_amount]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[purchase_amount]"
+                      name="purchase_amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[purchase_date]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[purchase_date]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[purchase_date]"
+                      name="purchase_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_2]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[category_2]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_2]"
+                      name="category_2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[state_id]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[state_id]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[state_id]"
+                      name="state_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[subsector_id]"
+                      codePage="936"
+                      dataType="str"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[subsector_id]"
+                      length="50"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[subsector_id]"
+                      name="subsector_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示数据是否为二进制格式。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[authorized_flag]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="authorized_flag" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[card_id]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="card_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[city_id]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="city_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[category_1]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="category_1" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[installments]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="installments" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[category_3]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="category_3" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[merchant_category_id]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="merchant_category_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[merchant_id]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="merchant_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[month_lag]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="month_lag" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[purchase_amount]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="purchase_amount" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[purchase_date]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="purchase_date" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[category_2]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="category_2" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[state_id]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="state_id" />
+                    <externalMetadataColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].ExternalColumns[subsector_id]"
+                      codePage="936"
+                      dataType="str"
+                      length="50"
+                      name="subsector_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\数据流任务\平面文件源.Outputs[平面文件源错误输出]"
+                  isErrorOut="true"
+                  name="平面文件源错误输出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源错误输出].Columns[平面文件源错误输出列]"
+                      codePage="936"
+                      dataType="text"
+                      description="平面文件源错误输出列"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源错误输出].Columns[平面文件源错误输出列]"
+                      name="平面文件源错误输出列" />
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\数据流任务\平面文件源.Outputs[平面文件源错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\数据流任务\数据转换"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="数据转换;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 保留所有权利; http://www.microsoft.com/sql/support;0"
+              description="数据转换"
+              name="数据转换"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\数据流任务\数据转换.Inputs[数据转换输入]"
+                  name="数据转换输入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[authorized_flag]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="authorized_flag"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[authorized_flag]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[card_id]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="card_id"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[card_id]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[city_id]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="city_id"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[city_id]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[category_1]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="category_1"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_1]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[installments]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="installments"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[installments]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[category_3]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="category_3"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_3]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[merchant_category_id]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="merchant_category_id"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[merchant_category_id]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[merchant_id]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="merchant_id"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[merchant_id]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[month_lag]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="month_lag"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[month_lag]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[purchase_amount]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="purchase_amount"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[purchase_amount]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[purchase_date]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="purchase_date"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[purchase_date]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[category_2]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="category_2"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_2]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[state_id]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="state_id"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[state_id]" />
+                    <inputColumn
+                      refId="Package\数据流任务\数据转换.Inputs[数据转换输入].Columns[subsector_id]"
+                      cachedCodepage="936"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="subsector_id"
+                      lineageId="Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[subsector_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\数据流任务\数据转换.Outputs[数据转换输出]"
+                  exclusionGroup="1"
+                  name="数据转换输出"
+                  synchronousInputId="Package\数据流任务\数据转换.Inputs[数据转换输入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[authorized_flag 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[authorized_flag 的副本]"
+                      name="authorized_flag 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[authorized_flag]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[card_id 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[card_id 的副本]"
+                      name="card_id 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[card_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[city_id 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[city_id 的副本]"
+                      name="city_id 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[city_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_1 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_1 的副本]"
+                      name="category_1 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[installments 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[installments 的副本]"
+                      name="installments 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[installments]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_3 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_3 的副本]"
+                      name="category_3 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_3]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[merchant_category_id 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[merchant_category_id 的副本]"
+                      name="merchant_category_id 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[merchant_category_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[merchant_id 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[merchant_id 的副本]"
+                      name="merchant_id 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[merchant_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[month_lag 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[month_lag 的副本]"
+                      name="month_lag 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[month_lag]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[purchase_amount 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[purchase_amount 的副本]"
+                      name="purchase_amount 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[purchase_amount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[purchase_date 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[purchase_date 的副本]"
+                      name="purchase_date 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[purchase_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_2 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[category_2 的副本]"
+                      name="category_2 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[category_2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[state_id 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[state_id 的副本]"
+                      name="state_id 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[state_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[subsector_id 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="转换"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换输出].Columns[subsector_id 的副本]"
+                      name="subsector_id 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定用作转换数据源的输入列。"
+                          name="SourceInputColumnLineageID">#{Package\数据流任务\平面文件源.Outputs[平面文件源输出].Columns[subsector_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指示该列是否使用更快、不分区域设置的分析例程。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\数据流任务\数据转换.Outputs[数据转换错误输出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="数据转换错误输出"
+                  synchronousInputId="Package\数据流任务\数据转换.Inputs[数据转换输入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换错误输出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换错误输出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\数据流任务\数据转换.Outputs[数据转换错误输出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\数据流任务\数据转换.Outputs[数据转换错误输出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\数据流任务.Paths[平面文件源输出]"
+              endId="Package\数据流任务\数据转换.Inputs[数据转换输入]"
+              name="平面文件源输出"
+              startId="Package\数据流任务\平面文件源.Outputs[平面文件源输出]" />
+            <path
+              refId="Package\数据流任务.Paths[数据转换输出]"
+              endId="Package\数据流任务\OLE DB 目标.Inputs[OLE DB 目标输入]"
+              name="数据转换输出"
+              startId="Package\数据流任务\数据转换.Outputs[数据转换输出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[约束]"
+      DTS:CreationName=""
+      DTS:DTSID="{7678CCCA-D5E7-45DB-9B6A-7D18997C6944}"
+      DTS:From="Package\执行 SQL 任务"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="约束"
+      DTS:To="Package\数据流任务" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 部分包含包的布局信息。该部分包括(x,y)坐标、宽度和高度之类的信息。-->
+<!--如果您手动编辑此部分并且出错，则可以删除此部分。 -->
+<!--该包仍将能够正常加载，但以前的布局信息将丢失，并且设计器将自动在设计图面上重新排列这些元素。-->
+<Objects
+  Version="8">
+  <!--下面的每个节点都将包含不会影响运行时行为的属性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\数据流任务"
+          TopLeft="247.499990165234,114.214279879113" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\执行 SQL 任务"
+          TopLeft="230.833324160841,22.285713147144" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[约束]"
+          TopLeft="313.166657163037,64.285713147144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.928566731969"
+              Start="0,0"
+              End="0,42.428566731969">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.428566731969" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\数据流任务">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\数据流任务\平面文件源"
+          TopLeft="280.833322174019,25.0714272905369" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\数据流任务\OLE DB 目标"
+          TopLeft="279.374992670491,187.880938038715" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\数据流任务\数据转换"
+          TopLeft="289.999988476436,106.785708830065" />
+        <EdgeLayout
+          Id="Package\数据流任务.Paths[平面文件源输出]"
+          TopLeft="351.916655325228,67.0714272905369">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.7142815395279"
+              Start="0,0"
+              End="0,32.2142815395279">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.2142815395279" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\数据流任务.Paths[数据转换输出]"
+          TopLeft="352.687490573464,148.385708830065">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.4952292086503"
+              Start="0,0"
+              End="0,31.9952292086503">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.9952292086503" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\数据流任务\OLE DB 目标">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
