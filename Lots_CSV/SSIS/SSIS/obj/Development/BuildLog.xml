@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>SSIS</Name>
+    <LastWriteTime>2022-06-17T02:46:34.0162406Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+    <Salt>vofjYRLB</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAACAAAAAAAQZgAAAAEAACAAAAB+z9dSMkHCFfq6MnwjSzvJPE8xtovEjsq8mgUCHCW/YgAAAAAOgAAAAAIAACAAAAD/hVSSfdBtkyfL+sFeDvAS73Rh+3AYK/19R887e1pLpjAAAAD6dnj5uUpRQFSn9Ac6pt/XjrWZDEhZG9gdoqKzu9LEPmwrd0sAX1s9jdztcfqXlG5AAAAA5XwVh4rXi98FXqDVp7gM+AUSCPZllikVwjkWKm58Teq7PeLOPrznF0mVIL1Oa8lkTTD1Ct/Yh6eTPbXop10pNQ==</LastKnownProtectedHashedPassword>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>Lots_csv_01.dtsx</Name>
+      <LastWriteTime>2022-06-17T02:23:58.9395634Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+      <Salt>/++QFGDQ</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAACAAAAAAAQZgAAAAEAACAAAACna3TQktoBoPpYElB8mIs7P9Q+OzJnp+RQeOs+urm/MQAAAAAOgAAAAAIAACAAAABecqpraRnJ0p5xMVG3iisaR+UU2laVNbpbSPquFU+sTDAAAAAt++2cue29uVfaobJGdaqIX7WAFVVVcxTxjsbL5TgaBJiN+NFUkjD4BhHeR657kjJAAAAAKoh9hNYgaS0d4RthL5LnG6qgaS8bcB1car/w5UDiJHjWp/v4HZJ2c/P12wR64a5IullW6hUjF1OhF8qKkqyXng==</LastKnownProtectedHashedPassword>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Lots_csv_02.dtsx</Name>
+      <LastWriteTime>2022-06-17T02:46:33.9697041Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+      <Salt>ZUyPDM+V</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAACAAAAAAAQZgAAAAEAACAAAAB9dXMj+uBl2qRKBxerwGQzhfQ7WrMioSXlWXO5gyD1AwAAAAAOgAAAAAIAACAAAAByWkzt2frcv72NwgkQCp3GsmqffcgGuLdtp1UYgmdlvDAAAACen8l60ExIc20wy3O8mmo0Cm+uVcuJGHdqlBF5VqH9g90Aj1E+PI0MWMyJ6Rx13iFAAAAATRwIdsnMselZc78UZR60mTN6j+T5eUlpzAVwxO22CyfKMy38I/LYG0td3pHNnHtYAkQlgbCK07YoBZy3W4gMZg==</LastKnownProtectedHashedPassword>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Lots_csv_03.dtsx</Name>
+      <LastWriteTime>2022-06-17T02:23:59.0612044Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+      <Salt>Vuqv2cgx</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHSN2ovOQbU+lGzrj9qqX1AAAAAACAAAAAAAQZgAAAAEAACAAAAA4cAuHeQO2Q8rbY9THCwXzciyOkT9TzcxURkiC1J80HwAAAAAOgAAAAAIAACAAAAAAV0Dfck0ml0bou4uL1PDCyNX+GqiTzaKx5lKE2YNC0zAAAAA9kw0FBRKaO7o3uDfqqUbwic8WP5ZH7xOJ2tERj9mrpoltzy887jYGGsmtd9P4BwpAAAAAqmoW8LeYJbOB69gTVW7ewIlhi3PLNiLTFcE+Wsx8/Yn8i7R5JLh/9pTC3oyImuXtEZCNoQ4FuQtYHwaNj1DHlw==</LastKnownProtectedHashedPassword>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>
