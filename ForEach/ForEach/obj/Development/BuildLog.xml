@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ForEach</Name>
-    <LastWriteTime>2022-06-02T09:24:57.8200297Z</LastWriteTime>
+    <LastWriteTime>2022-06-16T15:13:32.0268662Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>bing.dtsx</Name>
-      <LastWriteTime>2022-06-02T09:24:34.4761427Z</LastWriteTime>
+      <LastWriteTime>2022-06-16T15:13:31.9749756Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
