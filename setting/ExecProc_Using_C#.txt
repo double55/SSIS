@@ -1,0 +1,66 @@
+		public void Main()
+		{
+            // TODO: Add your code here
+
+            // User::varEmailBody,User::varEnailSubject,User::varProcName,
+            // User::varProfileName,User::varRecipients
+
+            string emailBody = Dts.Variables["User::varEmailBody"].Value.ToString();
+            string emailSubject = Dts.Variables["User::varEnailSubject"].Value.ToString();
+            string procName = Dts.Variables["User::varProcName"].Value.ToString();
+            string profileName = Dts.Variables["User::varProfileName"].Value.ToString();
+            string recipients = Dts.Variables["User::varRecipients"].Value.ToString();
+
+            SqlParameter[] paraValues = {
+                                         new SqlParameter("@profile_name",SqlDbType.VarChar),
+                                         new SqlParameter("@recipients",SqlDbType.VarChar),
+                                         new SqlParameter("@subject",SqlDbType.VarChar),
+                                         new SqlParameter("@body",SqlDbType.VarChar),
+                                         };
+
+             // 给存储过程参数数组赋值
+
+             paraValues[0].Value = profileName;
+             paraValues[1].Value = recipients;
+             paraValues[2].Value = emailSubject;
+             paraValues[3].Value = emailBody;
+
+            ExecProc(procName, paraValues);
+
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        public void ExecProc(string procName, params object[] paraValues)
+        {
+
+            using (SqlConnection conn = new SqlConnection(@"Data Source = DOUBLL\MSSQL_ADMIN; Initial Catalog = Task_03; Persist Security Info = True; Integrated Security=True;"))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand
+                    {
+                        CommandText = procName,
+                        // 设置CommandType的类型
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn
+                    };
+                    conn.Open();
+                    
+                    if (paraValues != null)
+                    {
+                        //添加参数
+                        cmd.Parameters.AddRange(paraValues);
+                    }
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("错误:" + ex.Message + "/r/n跟踪:" + ex.StackTrace);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }

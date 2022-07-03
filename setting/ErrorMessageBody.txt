@@ -1,0 +1,12 @@
+Hello  Team,<br>
+
+<b>Package  Execution  Failed  Due  to  Following  Reasons</b><br>
+
+1  :  PackageId  :  {PackageID}<br>
+2  :  PackageName  :  {PackageName}<br>
+3  :  MachineName  :  {MachineName}<br>
+
+Kindly  find  the  attached  error  log  file  to  know  more  about  error  code  and  error  description.<br>
+
+Thank  you,<br>
+SSIS Team

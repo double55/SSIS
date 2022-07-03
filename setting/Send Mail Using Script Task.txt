@@ -1,0 +1,63 @@
+		public void Main()
+		{
+            // TODO: Add your code here
+
+            // System::MachineName,System::PackageID,System::PackageName,User::varErrorLogFile,
+            // User::varErrorMessagePath,User::varErrorSubject,User::varFromEmail,User::varMyUserName,
+            // User::varMyUserPassword,User::varSmtpPort,User::varSmtpServer,User::varSsl,User::varToEmail
+
+            string mailFileName = Dts.Variables["User::varErrorMessagePath"].Value.ToString();
+            string PackageID = Dts.Variables["System::PackageID"].Value.ToString();
+            string PackageName = Dts.Variables["System::PackageName"].Value.ToString();
+            string MachineName = Dts.Variables["System::MachineName"].Value.ToString();
+            string messageBody = "";
+            if (File.Exists(mailFileName))
+            {
+                messageBody = File.ReadAllText(mailFileName);
+                messageBody = messageBody.Replace("{PackageID}", PackageID);
+                messageBody = messageBody.Replace("{PackageName}", PackageName);
+                messageBody = messageBody.Replace("{MachineName}", MachineName);
+            }
+
+            // SMTP Connection
+            // User::varMyUserName,
+            // User::varMyUserPassword,User::varSmtpPort,User::varSmtpServer,User::varSsl
+
+            string smtpServer = Dts.Variables["User::varSmtpServer"].Value.ToString();
+            int smtpPort = (int)Dts.Variables["User::varSmtpPort"].Value;
+            bool ssl = (bool)Dts.Variables["User::varSsl"].Value;
+
+            string myUserName = Dts.Variables["User::varMyUserName"].Value.ToString();
+            string myUserPassword = Dts.Variables["User::varMyUserPassword"].Value.ToString();
+
+            SmtpClient objSmtp = new SmtpClient(smtpServer);
+            objSmtp.Credentials = new NetworkCredential(myUserName, myUserPassword);
+            objSmtp.Port = smtpPort;
+            objSmtp.EnableSsl = ssl;
+
+            // User::varErrorSubject,User::varFromEmail,User::varToEmail,
+
+            string emailSubject = Dts.Variables["User::varErrorSubject"].Value.ToString();
+            string fromEmail = Dts.Variables["User::varFromEmail"].Value.ToString();
+            string toEmail = Dts.Variables["User::varToEmail"].Value.ToString();
+
+            MailMessage objMailMessage = new MailMessage
+            {
+                From = new MailAddress(fromEmail)
+            };
+            objMailMessage.To.Add(toEmail);
+            objMailMessage.Subject = emailSubject;
+            objMailMessage.Body = messageBody;
+            objMailMessage.IsBodyHtml = true;
+
+            string errorLogFile = Dts.Variables["User::varErrorLogFile"].Value.ToString();
+            Attachment objAttch = new Attachment(errorLogFile);
+
+            objMailMessage.Attachments.Add(objAttch);
+
+            objSmtp.Send(objMailMessage);
+
+            MessageBox.Show("Email Send SuccessFully");
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}

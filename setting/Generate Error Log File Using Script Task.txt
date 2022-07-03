@@ -1,0 +1,24 @@
+		public void Main()
+		{
+            // TODO: Add your code here
+
+            // System::TaskName,System::ErrorCode,System::ErrorDescription,
+            // System::MachineName,System::PackageID,System::PackageName,
+            // User::varErrorLogFile
+
+            string PackageID = Dts.Variables["System::PackageID"].Value.ToString();
+            string TaskName = Dts.Variables["System::TaskName"].Value.ToString();
+            string ErrorCode = Dts.Variables["System::ErrorCode"].Value.ToString();
+            string ErrorDescription = Dts.Variables["System::ErrorDescription"].Value.ToString();
+            string MachineName = Dts.Variables["System::MachineName"].Value.ToString();
+            string PackageName = Dts.Variables["System::PackageName"].Value.ToString();
+            string varErrorLogFile = Dts.Variables["User::varErrorLogFile"].Value.ToString();
+
+            string pattern_ = "\r\n";
+
+            string errorMsg = "Package ID : " + PackageID + pattern_ + "PackageName : " + PackageName + pattern_ + "TaskName : " + TaskName + pattern_ + "MachineName : " + MachineName + pattern_ + "ErrorCode : " + ErrorCode + pattern_ + "ErrorDescription : " + ErrorDescription + pattern_;
+
+            File.WriteAllText(varErrorLogFile, errorMsg);
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
